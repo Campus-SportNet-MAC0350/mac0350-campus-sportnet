@@ -63,7 +63,7 @@
 											"top": 127,
 											"width": 234.03515625,
 											"height": 13,
-											"text": "Publicacao"
+											"text": "Post"
 										},
 										{
 											"_type": "LabelView",
@@ -135,7 +135,7 @@
 											"top": 150,
 											"width": 234.03515625,
 											"height": 13,
-											"text": "#quantidadeCurtidas: int",
+											"text": "#likesCount: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -152,7 +152,7 @@
 											"top": 165,
 											"width": 234.03515625,
 											"height": 13,
-											"text": "#textoPublicacao: string",
+											"text": "#postText: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -169,7 +169,7 @@
 											"top": 180,
 											"width": 234.03515625,
 											"height": 13,
-											"text": "#usuarioPublicacao: string",
+											"text": "#postUser: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -186,7 +186,7 @@
 											"top": 195,
 											"width": 234.03515625,
 											"height": 13,
-											"text": "#horaPublicacao: string",
+											"text": "#postTime: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -203,7 +203,7 @@
 											"top": 210,
 											"width": 234.03515625,
 											"height": 13,
-											"text": "#dataPublicacao: string",
+											"text": "#postDate: string",
 											"horizontalAlignment": 0
 										}
 									],
@@ -237,7 +237,7 @@
 											"top": 233,
 											"width": 234.03515625,
 											"height": 13,
-											"text": "+Publicacao(String texto, String usuario)",
+											"text": "+Post(String text, String user)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -254,7 +254,7 @@
 											"top": 248,
 											"width": 234.03515625,
 											"height": 13,
-											"text": "+adicionaCurtida(): void",
+											"text": "+addLike(): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -271,7 +271,7 @@
 											"top": 263,
 											"width": 234.03515625,
 											"height": 13,
-											"text": "+editarTexto(): void",
+											"text": "+editText(): void",
 											"horizontalAlignment": 0
 										}
 									],
@@ -379,7 +379,7 @@
 											"top": 375,
 											"width": 191.41064453125,
 											"height": 13,
-											"text": "Evento"
+											"text": "Event"
 										},
 										{
 											"_type": "LabelView",
@@ -451,7 +451,7 @@
 											"top": 398,
 											"width": 191.41064453125,
 											"height": 13,
-											"text": "-dataEvento",
+											"text": "-eventDate: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -468,7 +468,7 @@
 											"top": 413,
 											"width": 191.41064453125,
 											"height": 13,
-											"text": "-horaEvento",
+											"text": "-eventTime: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -485,7 +485,7 @@
 											"top": 428,
 											"width": 191.41064453125,
 											"height": 13,
-											"text": "-qtdParticipantes",
+											"text": "-confirmedCount",
 											"horizontalAlignment": 0
 										}
 									],
@@ -519,7 +519,7 @@
 											"top": 451,
 											"width": 191.41064453125,
 											"height": 13,
-											"text": "+Evento(String data, String hora)",
+											"text": "+Event(String data, String hora)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -536,7 +536,7 @@
 											"top": 466,
 											"width": 191.41064453125,
 											"height": 13,
-											"text": "+getData()",
+											"text": "+getDate(): string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -553,7 +553,7 @@
 											"top": 481,
 											"width": 191.41064453125,
 											"height": 13,
-											"text": "+getHora()",
+											"text": "+getTime(): string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -570,7 +570,7 @@
 											"top": 496,
 											"width": 191.41064453125,
 											"height": 13,
-											"text": "+getParticipantes()",
+											"text": "+getConfirmedCount(): string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -587,7 +587,7 @@
 											"top": 511,
 											"width": 191.41064453125,
 											"height": 13,
-											"text": "+addParticipante()",
+											"text": "+addConfirmed(): void",
 											"horizontalAlignment": 0
 										}
 									],
@@ -754,7 +754,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Publicacao",
+					"name": "Post",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
@@ -762,7 +762,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWWPB/ugc+GQ="
 							},
-							"name": "quantidadeCurtidas",
+							"name": "likesCount",
 							"visibility": "protected",
 							"type": "int"
 						},
@@ -772,7 +772,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWWPB/ugc+GQ="
 							},
-							"name": "textoPublicacao",
+							"name": "postText",
 							"visibility": "protected",
 							"type": "string"
 						},
@@ -782,7 +782,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWWPB/ugc+GQ="
 							},
-							"name": "usuarioPublicacao",
+							"name": "postUser",
 							"visibility": "protected",
 							"type": "string"
 						},
@@ -792,7 +792,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWWPB/ugc+GQ="
 							},
-							"name": "horaPublicacao",
+							"name": "postTime",
 							"visibility": "protected",
 							"type": "string"
 						},
@@ -802,7 +802,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWWPB/ugc+GQ="
 							},
-							"name": "dataPublicacao",
+							"name": "postDate",
 							"visibility": "protected",
 							"type": "string"
 						}
@@ -814,7 +814,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWWPB/ugc+GQ="
 							},
-							"name": "Publicacao",
+							"name": "Post",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -822,7 +822,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGOWWsRoOi76lA="
 									},
-									"name": "String texto"
+									"name": "String text"
 								},
 								{
 									"_type": "UMLParameter",
@@ -830,8 +830,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGOWWsRoOi76lA="
 									},
-									"name": "String usuario",
-									"type": ""
+									"name": "String user"
 								}
 							]
 						},
@@ -841,7 +840,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWWPB/ugc+GQ="
 							},
-							"name": "adicionaCurtida",
+							"name": "addLike",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -860,7 +859,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWWPB/ugc+GQ="
 							},
-							"name": "editarTexto",
+							"name": "editText",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -920,7 +919,8 @@
 								"$ref": "AAAAAAGOWWo4a+iRA5M="
 							},
 							"name": "dataEvento",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -929,7 +929,8 @@
 								"$ref": "AAAAAAGOWWo4a+iRA5M="
 							},
 							"name": "horaEvento",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -938,7 +939,8 @@
 								"$ref": "AAAAAAGOWWo4a+iRA5M="
 							},
 							"name": "qtdParticipantes",
-							"visibility": "private"
+							"visibility": "private",
+							"type": ""
 						}
 					]
 				},
@@ -971,7 +973,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Evento",
+					"name": "Event",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -994,8 +996,9 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWW1w8eqwhw4="
 							},
-							"name": "dataEvento",
-							"visibility": "private"
+							"name": "eventDate",
+							"visibility": "private",
+							"type": "string"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -1003,8 +1006,9 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWW1w8eqwhw4="
 							},
-							"name": "horaEvento",
-							"visibility": "private"
+							"name": "eventTime",
+							"visibility": "private",
+							"type": "string"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -1012,7 +1016,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWW1w8eqwhw4="
 							},
-							"name": "qtdParticipantes",
+							"name": "confirmedCount",
 							"visibility": "private"
 						}
 					],
@@ -1023,7 +1027,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWW1w8eqwhw4="
 							},
-							"name": "Evento",
+							"name": "Event",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -1031,8 +1035,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGOWW5Mqusjr0o="
 									},
-									"name": "String data",
-									"type": ""
+									"name": "String data"
 								},
 								{
 									"_type": "UMLParameter",
@@ -1040,8 +1043,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGOWW5Mqusjr0o="
 									},
-									"name": "String hora",
-									"type": ""
+									"name": "String hora"
 								}
 							]
 						},
@@ -1051,7 +1053,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWW1w8eqwhw4="
 							},
-							"name": "getData"
+							"name": "getDate",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh38HCopSfyk=",
+									"_parent": {
+										"$ref": "AAAAAAGOWW7LPOsu7Eo="
+									},
+									"type": "string",
+									"direction": "return"
+								}
+							]
 						},
 						{
 							"_type": "UMLOperation",
@@ -1059,7 +1072,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWW1w8eqwhw4="
 							},
-							"name": "getHora"
+							"name": "getTime",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4B3vYpY37g=",
+									"_parent": {
+										"$ref": "AAAAAAGOWW8oQus1lF8="
+									},
+									"type": "string",
+									"direction": "return"
+								}
+							]
 						},
 						{
 							"_type": "UMLOperation",
@@ -1067,7 +1091,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWW1w8eqwhw4="
 							},
-							"name": "getParticipantes"
+							"name": "getConfirmedCount",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4CKpIpbhDE=",
+									"_parent": {
+										"$ref": "AAAAAAGOWW83K+s8zS8="
+									},
+									"type": "string",
+									"direction": "return"
+								}
+							]
 						},
 						{
 							"_type": "UMLOperation",
@@ -1075,7 +1110,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWW1w8eqwhw4="
 							},
-							"name": "addParticipante"
+							"name": "addConfirmed",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4CXVopeSiM=",
+									"_parent": {
+										"$ref": "AAAAAAGOWW9QEutDNOc="
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
 						}
 					]
 				}
