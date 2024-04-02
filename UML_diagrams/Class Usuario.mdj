@@ -63,7 +63,7 @@
 											"top": 167,
 											"width": 451.53125,
 											"height": 13,
-											"text": "Usuario"
+											"text": "User"
 										},
 										{
 											"_type": "LabelView",
@@ -135,24 +135,7 @@
 											"top": 190,
 											"width": 451.53125,
 											"height": 13,
-											"text": "#nomeUsuario: String",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAGOWXwR7gNluMk=",
-											"_parent": {
-												"$ref": "AAAAAAGOWXn4bwMowC8="
-											},
-											"model": {
-												"$ref": "AAAAAAGOWXwR5QNixaA="
-											},
-											"font": "Arial;13;0",
-											"left": 277,
-											"top": 205,
-											"width": 451.53125,
-											"height": 13,
-											"text": "#numSeguidores: int",
+											"text": "#username: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -166,10 +149,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 277,
-											"top": 220,
+											"top": 205,
 											"width": 451.53125,
 											"height": 13,
-											"text": "#biografia: String",
+											"text": "#profileBio: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -183,10 +166,44 @@
 											},
 											"font": "Arial;13;0",
 											"left": 277,
+											"top": 220,
+											"width": 451.53125,
+											"height": 13,
+											"text": "#location: String",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGOWXwR7gNluMk=",
+											"_parent": {
+												"$ref": "AAAAAAGOWXn4bwMowC8="
+											},
+											"model": {
+												"$ref": "AAAAAAGOWXwR5QNixaA="
+											},
+											"font": "Arial;13;0",
+											"left": 277,
 											"top": 235,
 											"width": 451.53125,
 											"height": 13,
-											"text": "#localizacao: String",
+											"text": "#followersCount: int",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGOh4JyUvr6n2E=",
+											"_parent": {
+												"$ref": "AAAAAAGOWXn4bwMowC8="
+											},
+											"model": {
+												"$ref": "AAAAAAGOh4JySvr3p4c="
+											},
+											"font": "Arial;13;0",
+											"left": 277,
+											"top": 250,
+											"width": 451.53125,
+											"height": 13,
+											"text": "#id: int",
 											"horizontalAlignment": 0
 										}
 									],
@@ -194,7 +211,7 @@
 									"left": 272,
 									"top": 185,
 									"width": 461.53125,
-									"height": 68
+									"height": 83
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -217,10 +234,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 277,
-											"top": 258,
+											"top": 273,
 											"width": 451.53125,
 											"height": 13,
-											"text": "+Usuario(String nome, int numSeguidores, String biografia, String localizacao)",
+											"text": "+User(String nome, int numSeguidores, String biografia, String localizacao)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -234,10 +251,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 277,
-											"top": 273,
+											"top": 288,
 											"width": 451.53125,
 											"height": 13,
-											"text": "+getSeguidores()",
+											"text": "+getFollowers(): string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -251,10 +268,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 277,
-											"top": 288,
+											"top": 303,
 											"width": 451.53125,
 											"height": 13,
-											"text": "+getNomeUsuario()",
+											"text": "+getUsername(): string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -268,10 +285,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 277,
-											"top": 303,
+											"top": 318,
 											"width": 451.53125,
 											"height": 13,
-											"text": "+getBio()",
+											"text": "+getBio(): string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -285,10 +302,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 277,
-											"top": 318,
+											"top": 333,
 											"width": 451.53125,
 											"height": 13,
-											"text": "+getLocalizacao()",
+											"text": "+getLocation(): string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -302,10 +319,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 277,
-											"top": 333,
+											"top": 348,
 											"width": 451.53125,
 											"height": 13,
-											"text": "+addSeguidor()",
+											"text": "+addFollower(): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -319,10 +336,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 277,
-											"top": 348,
+											"top": 363,
 											"width": 451.53125,
 											"height": 13,
-											"text": "+setBio(String bio)",
+											"text": "+setBio(String bio): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -336,10 +353,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 277,
-											"top": 363,
+											"top": 378,
 											"width": 451.53125,
 											"height": 13,
-											"text": "+setNome(String nome)",
+											"text": "+setUsername(String nome): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -353,16 +370,16 @@
 											},
 											"font": "Arial;13;0",
 											"left": 277,
-											"top": 378,
+											"top": 393,
 											"width": 451.53125,
 											"height": 13,
-											"text": "+setLocalizacao(String loc)",
+											"text": "+setLocation(String loc): void",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 272,
-									"top": 253,
+									"top": 268,
 									"width": 461.53125,
 									"height": 143
 								},
@@ -404,7 +421,7 @@
 							"left": 272,
 							"top": 160,
 							"width": 460.53125,
-							"height": 236,
+							"height": 251,
 							"nameCompartment": {
 								"$ref": "AAAAAAGOWXn4bwMjxho="
 							},
@@ -463,7 +480,7 @@
 											"top": 463,
 											"width": 206.59423828125,
 											"height": 13,
-											"text": "Aluno"
+											"text": "Student"
 										},
 										{
 											"_type": "LabelView",
@@ -533,7 +550,7 @@
 											"top": 486,
 											"width": 206.59423828125,
 											"height": 13,
-											"text": "+modalidadeFavorita: String",
+											"text": "-favoriteSport: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -550,7 +567,7 @@
 											"top": 501,
 											"width": 206.59423828125,
 											"height": 13,
-											"text": "+atleticaFavorita: String",
+											"text": "-favoriteTeam: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -567,7 +584,7 @@
 											"top": 516,
 											"width": 206.59423828125,
 											"height": 13,
-											"text": "+instituicao: String",
+											"text": "-school: string",
 											"horizontalAlignment": 0
 										}
 									],
@@ -601,7 +618,7 @@
 											"top": 539,
 											"width": 206.59423828125,
 											"height": 13,
-											"text": "+getModalidade()",
+											"text": "+getSport(): string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -618,7 +635,7 @@
 											"top": 554,
 											"width": 206.59423828125,
 											"height": 13,
-											"text": "+getAtletica()",
+											"text": "+getTeam(): string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -635,7 +652,7 @@
 											"top": 569,
 											"width": 206.59423828125,
 											"height": 13,
-											"text": "+getInstituicao()",
+											"text": "+getSchool(): string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -652,7 +669,7 @@
 											"top": 584,
 											"width": 206.59423828125,
 											"height": 13,
-											"text": "+setModalidade(String modalidade)",
+											"text": "+setSport(string sport)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -669,7 +686,7 @@
 											"top": 599,
 											"width": 206.59423828125,
 											"height": 13,
-											"text": "+setAtletica(String atletica)",
+											"text": "+setTeam(string team)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -686,7 +703,7 @@
 											"top": 614,
 											"width": 206.59423828125,
 											"height": 13,
-											"text": "+setInstituicao(String instituicao)",
+											"text": "+setSchool(string school)",
 											"horizontalAlignment": 0
 										}
 									],
@@ -770,8 +787,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 419,
-									"top": 413,
+									"left": 417,
+									"top": 420,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -791,8 +808,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 405,
-									"top": 406,
+									"left": 404,
+									"top": 413,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -812,8 +829,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 446,
-									"top": 426,
+									"left": 444,
+									"top": 433,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -831,7 +848,7 @@
 								"$ref": "AAAAAAGOWX+CAAPAXyw="
 							},
 							"lineStyle": 1,
-							"points": "420:455;447:397",
+							"points": "421:455;442:412",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGOWX+CGQPqUmY="
@@ -884,9 +901,9 @@
 											"font": "Arial;13;1",
 											"left": 605,
 											"top": 471,
-											"width": 170.42529296875,
+											"width": 204.4169921875,
 											"height": 13,
-											"text": "Atletica"
+											"text": "Team"
 										},
 										{
 											"_type": "LabelView",
@@ -919,7 +936,7 @@
 									"font": "Arial;13;0",
 									"left": 600,
 									"top": 464,
-									"width": 180.42529296875,
+									"width": 214.4169921875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGOWX+8YgP9A/w="
@@ -956,9 +973,9 @@
 											"font": "Arial;13;0",
 											"left": 605,
 											"top": 494,
-											"width": 170.42529296875,
+											"width": 204.4169921875,
 											"height": 13,
-											"text": "+mascote: String",
+											"text": "-pet: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -973,16 +990,16 @@
 											"font": "Arial;13;0",
 											"left": 605,
 											"top": 509,
-											"width": 170.42529296875,
+											"width": 204.4169921875,
 											"height": 13,
-											"text": "+tituloDestaque: String",
+											"text": "-csHighlight: string",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 600,
 									"top": 489,
-									"width": 180.42529296875,
+									"width": 214.4169921875,
 									"height": 38
 								},
 								{
@@ -1007,9 +1024,9 @@
 											"font": "Arial;13;0",
 											"left": 605,
 											"top": 532,
-											"width": 170.42529296875,
+											"width": 204.4169921875,
 											"height": 13,
-											"text": "+getMascote()",
+											"text": "+getPet(): string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1024,9 +1041,9 @@
 											"font": "Arial;13;0",
 											"left": 605,
 											"top": 547,
-											"width": 170.42529296875,
+											"width": 204.4169921875,
 											"height": 13,
-											"text": "+mudaTitulo(String titulo)",
+											"text": "+changeHighlight(string titulo): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1041,16 +1058,16 @@
 											"font": "Arial;13;0",
 											"left": 605,
 											"top": 562,
-											"width": 170.42529296875,
+											"width": 204.4169921875,
 											"height": 13,
-											"text": "+setMascote(String Mascote)",
+											"text": "+setPet(string pet): void",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 600,
 									"top": 527,
-									"width": 180.42529296875,
+									"width": 214.4169921875,
 									"height": 53
 								},
 								{
@@ -1090,7 +1107,7 @@
 							"containerChangeable": true,
 							"left": 600,
 							"top": 464,
-							"width": 179.42529296875,
+							"width": 213.4169921875,
 							"height": 116,
 							"nameCompartment": {
 								"$ref": "AAAAAAGOWX+8YgP8wEg="
@@ -1129,8 +1146,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 606,
-									"top": 433,
+									"left": 621,
+									"top": 440,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -1150,8 +1167,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 594,
-									"top": 442,
+									"left": 610,
+									"top": 450,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -1171,8 +1188,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 629,
-									"top": 414,
+									"left": 644,
+									"top": 421,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -1190,7 +1207,7 @@
 								"$ref": "AAAAAAGOWX+8YgP7b9k="
 							},
 							"lineStyle": 1,
-							"points": "644:463;593:397",
+							"points": "655:463;611:412",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGOWX+8dAQlZTE="
@@ -1210,7 +1227,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Usuario",
+					"name": "User",
 					"attributes": [
 						{
 							"_type": "UMLAttribute",
@@ -1218,19 +1235,9 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWXn4bgMgQJM="
 							},
-							"name": "nomeUsuario",
+							"name": "username",
 							"visibility": "protected",
 							"type": "String"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAGOWXwR5QNixaA=",
-							"_parent": {
-								"$ref": "AAAAAAGOWXn4bgMgQJM="
-							},
-							"name": "numSeguidores",
-							"visibility": "protected",
-							"type": "int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -1238,7 +1245,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWXn4bgMgQJM="
 							},
-							"name": "biografia",
+							"name": "profileBio",
 							"visibility": "protected",
 							"type": "String"
 						},
@@ -1248,9 +1255,29 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWXn4bgMgQJM="
 							},
-							"name": "localizacao",
+							"name": "location",
 							"visibility": "protected",
 							"type": "String"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGOWXwR5QNixaA=",
+							"_parent": {
+								"$ref": "AAAAAAGOWXn4bgMgQJM="
+							},
+							"name": "followersCount",
+							"visibility": "protected",
+							"type": "int"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGOh4JySvr3p4c=",
+							"_parent": {
+								"$ref": "AAAAAAGOWXn4bgMgQJM="
+							},
+							"name": "id",
+							"visibility": "protected",
+							"type": "int"
 						}
 					],
 					"operations": [
@@ -1260,7 +1287,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWXn4bgMgQJM="
 							},
-							"name": "Usuario",
+							"name": "User",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -1268,8 +1295,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGOWXo2wwNQ+0M="
 									},
-									"name": "String nome",
-									"type": ""
+									"name": "String nome"
 								},
 								{
 									"_type": "UMLParameter",
@@ -1277,8 +1303,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGOWXo2wwNQ+0M="
 									},
-									"name": "int numSeguidores",
-									"type": ""
+									"name": "int numSeguidores"
 								},
 								{
 									"_type": "UMLParameter",
@@ -1286,8 +1311,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGOWXo2wwNQ+0M="
 									},
-									"name": "String biografia",
-									"type": ""
+									"name": "String biografia"
 								},
 								{
 									"_type": "UMLParameter",
@@ -1295,8 +1319,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGOWXo2wwNQ+0M="
 									},
-									"name": "String localizacao",
-									"type": ""
+									"name": "String localizacao"
 								}
 							]
 						},
@@ -1306,7 +1329,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWXn4bgMgQJM="
 							},
-							"name": "getSeguidores"
+							"name": "getFollowers",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4MHevsBtlw=",
+									"_parent": {
+										"$ref": "AAAAAAGOWXzNLQN7R2I="
+									},
+									"type": "string",
+									"direction": "return"
+								}
+							]
 						},
 						{
 							"_type": "UMLOperation",
@@ -1314,7 +1348,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWXn4bgMgQJM="
 							},
-							"name": "getNomeUsuario"
+							"name": "getUsername",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4M/yPsF7+c=",
+									"_parent": {
+										"$ref": "AAAAAAGOWXzv2QOCxLA="
+									},
+									"type": "string",
+									"direction": "return"
+								}
+							]
 						},
 						{
 							"_type": "UMLOperation",
@@ -1322,7 +1367,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWXn4bgMgQJM="
 							},
-							"name": "getBio"
+							"name": "getBio",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4NRNfsI9HU=",
+									"_parent": {
+										"$ref": "AAAAAAGOWX0L9AOJFyY="
+									},
+									"type": "string",
+									"direction": "return"
+								}
+							]
 						},
 						{
 							"_type": "UMLOperation",
@@ -1330,7 +1386,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWXn4bgMgQJM="
 							},
-							"name": "getLocalizacao"
+							"name": "getLocation",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4NoBvsLNBE=",
+									"_parent": {
+										"$ref": "AAAAAAGOWX0ZnAOQDbk="
+									},
+									"type": "string",
+									"direction": "return"
+								}
+							]
 						},
 						{
 							"_type": "UMLOperation",
@@ -1338,7 +1405,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWXn4bgMgQJM="
 							},
-							"name": "addSeguidor"
+							"name": "addFollower",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4OA8/sOM6E=",
+									"_parent": {
+										"$ref": "AAAAAAGOWX2AHAOg1jI="
+									},
+									"type": "void",
+									"direction": "return"
+								}
+							]
 						},
 						{
 							"_type": "UMLOperation",
@@ -1354,8 +1432,16 @@
 									"_parent": {
 										"$ref": "AAAAAAGOWX2jWQOnHLg="
 									},
-									"name": "String bio",
-									"type": ""
+									"name": "String bio"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4OSX/sRxjw=",
+									"_parent": {
+										"$ref": "AAAAAAGOWX2jWQOnHLg="
+									},
+									"type": "void",
+									"direction": "return"
 								}
 							]
 						},
@@ -1365,7 +1451,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWXn4bgMgQJM="
 							},
-							"name": "setNome",
+							"name": "setUsername",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -1373,8 +1459,16 @@
 									"_parent": {
 										"$ref": "AAAAAAGOWX0qBwOXjug="
 									},
-									"name": "String nome",
-									"type": ""
+									"name": "String nome"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4PBQfsVLK8=",
+									"_parent": {
+										"$ref": "AAAAAAGOWX0qBwOXjug="
+									},
+									"type": "void",
+									"direction": "return"
 								}
 							]
 						},
@@ -1384,7 +1478,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWXn4bgMgQJM="
 							},
-							"name": "setLocalizacao",
+							"name": "setLocation",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -1392,8 +1486,16 @@
 									"_parent": {
 										"$ref": "AAAAAAGOWX3CugOwGLM="
 									},
-									"name": "String loc",
-									"type": ""
+									"name": "String loc"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4PhBfsYym8=",
+									"_parent": {
+										"$ref": "AAAAAAGOWX3CugOwGLM="
+									},
+									"type": "void",
+									"direction": "return"
 								}
 							]
 						}
@@ -1405,7 +1507,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Aluno",
+					"name": "Student",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -1428,8 +1530,9 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWX+CAAO+LV8="
 							},
-							"name": "modalidadeFavorita",
-							"type": "String"
+							"name": "favoriteSport",
+							"visibility": "private",
+							"type": "string"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -1437,8 +1540,9 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWX+CAAO+LV8="
 							},
-							"name": "atleticaFavorita",
-							"type": "String"
+							"name": "favoriteTeam",
+							"visibility": "private",
+							"type": "string"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -1446,8 +1550,9 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWX+CAAO+LV8="
 							},
-							"name": "instituicao",
-							"type": "String"
+							"name": "school",
+							"visibility": "private",
+							"type": "string"
 						}
 					],
 					"operations": [
@@ -1457,7 +1562,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWX+CAAO+LV8="
 							},
-							"name": "getModalidade"
+							"name": "getSport",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4cwv/s8blk=",
+									"_parent": {
+										"$ref": "AAAAAAGOXg7VZCGx5Ys="
+									},
+									"type": "string",
+									"direction": "return"
+								}
+							]
 						},
 						{
 							"_type": "UMLOperation",
@@ -1465,7 +1581,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWX+CAAO+LV8="
 							},
-							"name": "getAtletica"
+							"name": "getTeam",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4dP/Ps/WtE=",
+									"_parent": {
+										"$ref": "AAAAAAGOXg7++SG4w1A="
+									},
+									"type": "string",
+									"direction": "return"
+								}
+							]
 						},
 						{
 							"_type": "UMLOperation",
@@ -1473,7 +1600,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWX+CAAO+LV8="
 							},
-							"name": "getInstituicao"
+							"name": "getSchool",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4d0iftCp9Y=",
+									"_parent": {
+										"$ref": "AAAAAAGOXg8XoCG/i1Y="
+									},
+									"type": "string",
+									"direction": "return"
+								}
+							]
 						},
 						{
 							"_type": "UMLOperation",
@@ -1481,7 +1619,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWX+CAAO+LV8="
 							},
-							"name": "setModalidade",
+							"name": "setSport",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -1489,8 +1627,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGOXg8l3CHGbG0="
 									},
-									"name": "String modalidade",
-									"type": ""
+									"name": "string sport"
 								}
 							]
 						},
@@ -1500,7 +1637,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWX+CAAO+LV8="
 							},
-							"name": "setAtletica",
+							"name": "setTeam",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -1508,8 +1645,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGOXg9QxCHPdS0="
 									},
-									"name": "String atletica",
-									"type": ""
+									"name": "string team"
 								}
 							]
 						},
@@ -1519,7 +1655,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWX+CAAO+LV8="
 							},
-							"name": "setInstituicao",
+							"name": "setSchool",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -1527,8 +1663,7 @@
 									"_parent": {
 										"$ref": "AAAAAAGOXg93cyHY6Sc="
 									},
-									"name": "String instituicao",
-									"type": ""
+									"name": "string school"
 								}
 							]
 						}
@@ -1540,7 +1675,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Atletica",
+					"name": "Team",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -1563,8 +1698,9 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWX+8YgP5b9E="
 							},
-							"name": "mascote",
-							"type": "String"
+							"name": "pet",
+							"visibility": "private",
+							"type": "string"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -1572,8 +1708,9 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWX+8YgP5b9E="
 							},
-							"name": "tituloDestaque",
-							"type": "String"
+							"name": "csHighlight",
+							"visibility": "private",
+							"type": "string"
 						}
 					],
 					"operations": [
@@ -1583,7 +1720,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWX+8YgP5b9E="
 							},
-							"name": "getMascote"
+							"name": "getPet",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4WwcPsrBX8=",
+									"_parent": {
+										"$ref": "AAAAAAGOXhAGdSHzTYo="
+									},
+									"type": "string",
+									"direction": "return"
+								}
+							]
 						},
 						{
 							"_type": "UMLOperation",
@@ -1591,7 +1739,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWX+8YgP5b9E="
 							},
-							"name": "mudaTitulo",
+							"name": "changeHighlight",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -1599,8 +1747,16 @@
 									"_parent": {
 										"$ref": "AAAAAAGOXg+3DCHh6tM="
 									},
-									"name": "String titulo",
-									"type": ""
+									"name": "string titulo"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4XxhfsxsOg=",
+									"_parent": {
+										"$ref": "AAAAAAGOXg+3DCHh6tM="
+									},
+									"type": "void",
+									"direction": "return"
 								}
 							]
 						},
@@ -1610,7 +1766,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGOWX+8YgP5b9E="
 							},
-							"name": "setMascote",
+							"name": "setPet",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -1618,8 +1774,16 @@
 									"_parent": {
 										"$ref": "AAAAAAGOXhAbcCH6s8g="
 									},
-									"name": "String Mascote",
-									"type": ""
+									"name": "string pet"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGOh4YZ/fs0QzE=",
+									"_parent": {
+										"$ref": "AAAAAAGOXhAbcCH6s8g="
+									},
+									"type": "void",
+									"direction": "return"
 								}
 							]
 						}
