@@ -1,4 +1,4 @@
-package com.campus-sport-net.plugins
+package com.campus_sportnet.plugins
 
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -10,8 +10,5 @@ fun Application.configureSerialization() {
         json()
     }
     routing {
-        get("/json/kotlinx-serialization") {
-                call.respond(mapOf("hello" to "world"))
-            }
     }
 }

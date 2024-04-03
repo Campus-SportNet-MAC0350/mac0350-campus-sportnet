@@ -1,6 +1,6 @@
-package com.campus-sport-net
+package com.campus_sportnet
 
-import com.campus-sport-net.plugins.*
+import com.campus_sportnet.plugins.*
 import io.ktor.server.application.*
 
 fun main(args: Array<String>) {
@@ -8,6 +8,7 @@ fun main(args: Array<String>) {
 }
 
 fun Application.module() {
+    configureTemplating()
     configureSerialization()
     configureRouting()
 }
