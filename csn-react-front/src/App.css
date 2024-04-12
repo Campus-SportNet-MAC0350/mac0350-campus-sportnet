@@ -37,10 +37,12 @@
   }
 }
 
-/*-*-*-* MENU ESQUERDO *-*-*-*/
 .publication-body {
   display: flex;
+  width: 100%;
 }
+
+/*-*-*-* MENU ESQUERDO *-*-*-*/
 
 .logo img {
   width: 80px;
@@ -60,7 +62,9 @@
   height: 100vh;
   box-sizing: border-box;
   justify-content: space-between;
+  position: sticky;
   left: 0;
+  top: 0;
 }
 
 .menuItem {
@@ -129,6 +133,51 @@
   flex-direction: column;
   border: 1px solid #ddd;
   width: 100vw;
+}
+
+.publication {
+  margin: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.img_and_user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile_picture {
+  width: 50px; 
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user {
+  font-size: 16px;
+  color: #222;
+}
+
+.text_and_picture {
+  display: flex;
+  flex-direction: column;
+}
+
+.text_and_picture p {
+  text-align: justify;
+}
+
+.postText {
+  font-size: 14px; /* Tamanho da fonte do texto do post */
+  color: #666; /* Cor do texto */
+  margin-bottom: 10px; /* Espaço entre o texto e a imagem do post */
+}
+
+.text_and_picture img {
+  max-width: 100%; /* Ajusta a imagem para não ultrapassar a largura da div */
+  height: auto; /* Mantém a proporção da imagem */
 }
 
 /*-*-*-* MENU DIREITO *-*-*-*/
