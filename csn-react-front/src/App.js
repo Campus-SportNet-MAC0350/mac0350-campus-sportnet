@@ -1,10 +1,10 @@
 import './App.css';
-import { DisplayHeader } from './DisplayHeader';
+import { DisplayBody } from './DisplayBody';
 
 function App() {
   return (
     <div className="App">
-      <DisplayHeader />
+      <DisplayBody />
     </div>
   );
 }
