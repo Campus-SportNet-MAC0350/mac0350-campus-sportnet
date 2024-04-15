@@ -1,10 +1,13 @@
 import './App.css';
 import { DisplayBody } from './DisplayBody';
+import { LoginPage } from './LoginPage';
+import { RegisterPage } from './RegisterPage';
 
 function App() {
   return (
     <div className="App">
-      <DisplayBody />
+      <RegisterPage />
+      {/* <DisplayBody /> */}
     </div>
   );
 }
