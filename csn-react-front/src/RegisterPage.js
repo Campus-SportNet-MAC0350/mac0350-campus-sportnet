@@ -1,3 +1,6 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 export const RegisterPage = () => {
     return (
         <div className="containerLogin">
@@ -14,8 +17,8 @@ export const RegisterPage = () => {
                         <input type='password' placeholder='Senha' />
                         {/* <label for="avatar">Escolha uma foto de perfil!</label>
                         <input type='file' id="avatar" name="avatar" accept="image/png, image/jpeg"/> */}
-                        <a href="login.html" className="register_url">Já possui uma conta? Faça Login!</a>
-                        <button type="button">Entrar</button>
+                        <Link to='/' className="register_url">Já possui uma conta? Faça Login!</Link>
+                        <Link to="/home"><button type="button">Cadastrar</button></Link>
                     </form>
                 </div>
             </div>

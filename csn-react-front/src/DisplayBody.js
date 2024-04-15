@@ -1,6 +1,7 @@
 import { DisplayPublication } from "./DisplayPublication";
 import { DisplaySideMenu } from "./DisplayLeftMenu";
 import { DisplayRightMenu } from "./DisplayRightMenu";
+import React from 'react';
 
 export const DisplayBody = () => {
     return(

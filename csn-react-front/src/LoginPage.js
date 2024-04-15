@@ -1,3 +1,6 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 export const LoginPage = () => {
     return (
         <div className="containerLogin">
@@ -11,8 +14,8 @@ export const LoginPage = () => {
                     <form>
                         <input type='text' placeholder='Email' />
                         <input type='password' placeholder='Senha' />
-                        <a href="register.html" className="register_url">Não possui uma conta? Cadastre-se!</a>
-                        <button type="button">Entrar</button>
+                        <Link to="/register" className="register_url">Não possui uma conta? Cadastre-se!</Link>
+                        <Link to="/home"><button type="button">Entrar</button></Link>
                     </form>
                 </div>
             </div>

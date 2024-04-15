@@ -1,4 +1,5 @@
 import { Post } from "./Post";
+import React from 'react';
 
 const user1 = {
     username: 'Pabli Escobas',
