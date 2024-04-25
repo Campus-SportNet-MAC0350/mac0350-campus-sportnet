@@ -37,7 +37,7 @@ export const RegisterPage = () => {
                         {/* <label for="avatar">Escolha uma foto de perfil!</label>
                         <input type='file' id="avatar" name="avatar" accept="image/png, image/jpeg"/> */}
                         <Link to='/' className="register_url">Já possui uma conta? Faça Login!</Link>
-                        <Link to="/home"><button type="button">Cadastrar</button></Link>
+                        <Link to="/home"><button type="button" className="btn">Cadastrar</button></Link>
                     </form>
                 </div>
             </div>

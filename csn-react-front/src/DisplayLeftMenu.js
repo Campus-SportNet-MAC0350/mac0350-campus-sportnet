@@ -5,8 +5,8 @@ export const DisplaySideMenu = (props) => {
     return (
         <div className="leftMenu">
             {/* Display Logo */}
-            <a class="logo" href="/index.html">
-                <img src="logo512.png" alt="logo"></img>
+            <a class="logo" href="#">
+                <Link to='/home'><img class="logo" src="logo512.png" alt="logo"></img></Link>
             </a>
 
             <input type='search' placeholder='Pesquisar'></input>

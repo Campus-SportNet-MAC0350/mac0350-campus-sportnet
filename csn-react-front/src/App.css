@@ -170,14 +170,51 @@
 }
 
 .postText {
-  font-size: 14px; /* Tamanho da fonte do texto do post */
-  color: #666; /* Cor do texto */
-  margin-bottom: 10px; /* Espaço entre o texto e a imagem do post */
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
 }
 
 .text_and_picture img {
-  max-width: 100%; /* Ajusta a imagem para não ultrapassar a largura da div */
-  height: auto; /* Mantém a proporção da imagem */
+  max-width: 100%;
+  height: auto;
+}
+
+.eventInfo {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fbfbfb;
+  border-radius: 8px;
+  padding-left: 20px;
+}
+
+
+.eventInfo p {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.info, .confirmPart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.info {
+  text-align: justify;
+  flex: 1;
+}
+
+.confirmPart {
+  flex: 2;
+  text-align: center;
+  /* align-items: center; */
+}
+
+.info p, .confirmPart p {
+  margin: 5px 0; /* Reduz e uniformiza a margem entre os parágrafos */
 }
 
 /*-*-*-* MENU DIREITO *-*-*-*/
@@ -235,6 +272,7 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  max-width: 100%;
   flex: 1;
 }
 
@@ -249,7 +287,7 @@
   margin-bottom: 10px;
 }
 
-.login_form button {
+.btn {
   width: 100%;
   cursor: pointer;
   margin-top: 10px;
@@ -266,12 +304,12 @@
   transition: all 0.3s ease;
 }
 
-.login_form button:hover {
+.btn:hover {
   background-color: #0056b3; 
   box-shadow: 0 4px 8px rgba(0,0,0,0.3); 
 }
 
-.login_form button:active {
+.btn:active {
   box-shadow: 0 1px 2px rgba(0,0,0,0.5); 
   transform: translateY(2px); 
 }

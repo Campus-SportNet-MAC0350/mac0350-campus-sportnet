@@ -15,7 +15,7 @@ export const LoginPage = () => {
                         <input type='text' placeholder='Email' />
                         <input type='password' placeholder='Senha' />
                         <Link to="/register" className="register_url">Não possui uma conta? Cadastre-se!</Link>
-                        <Link to="/home"><button type="button">Entrar</button></Link>
+                        <Link to="/home"><button className="btn" type="button">Entrar</button></Link>
                     </form>
                 </div>
             </div>
