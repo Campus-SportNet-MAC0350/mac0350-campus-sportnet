@@ -10,10 +10,17 @@ open class Post(a: String, b: String)
 
     fun addLike()
     {
+        likesCount += 1
         println("Fun addLike")
     }
-    fun editText()
+    fun editText(txt: String)
     {
-        println("Fun editText")
+        if(length(txt) <= 500)
+        {
+            postText = txt
+        }
+        else{
+            println("ERRO: Insira um texto até 500 caracteres.")
+        }
     }
 }

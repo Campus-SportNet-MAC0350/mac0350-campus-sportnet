@@ -23,6 +23,7 @@ class Event(a: String, b: String, c: String, d: String) : Post(a, b)
     }
     fun addConfirmedCount()
     {
+        confirmedCount += 1
         println("Fun addConfirmedCount")
     }
 }

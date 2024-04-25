@@ -4,7 +4,6 @@ class Student(a: String, b: String, c: String, d: Int): User(a, b, c, d)
 {
     private val favoriteSport: String = ""
     private val favoriteTeam: String = ""
-    private val school: String = ""
 
     fun getSport(): String
     {
@@ -16,21 +15,14 @@ class Student(a: String, b: String, c: String, d: Int): User(a, b, c, d)
         println("Fun getTeam")
         return favoriteTeam
     }
-    fun getSchool(): String
-    {
-        println("Fun getSchool")
-        return school
-    }
     fun setSport(a: String)
     {
+        favoriteSport = a
         println("Fun setSport")
     }
     fun setTeam(a: String)
     {
+        favoriteTeam = a
         println("Fun setTeam")
-    }
-    fun setSchool(a: String)
-    {
-        println("Fun setSchool")
     }
 }

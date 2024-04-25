@@ -12,10 +12,12 @@ class Team(a: String, b: String, c: String, d: Int): User(a, b, c, d)
     }
     fun setPet(a: String)
     {
+        pet = a
         println("Fun setPet")
     }
     fun changeHighlight(title: String)
     {
+        csHighlight = title
         println("Fun changeHighlight")
     }
 }
