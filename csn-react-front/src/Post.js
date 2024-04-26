@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export const Post = (props) => {
-    if(props.publicationType == "post"){
+    let [flag, setFlag] = useState(0);
+    let [participacao, setParticipacao] = useState("Confirmar participação nesse evento?");
+    let [btnString, setBtnString] = useState("Participar");
+    let [confirmedUsers, setConfirmedUsers] = useState(0);
+
+    const changeUsersCount = () => {
+        if (!flag) {
+            setConfirmedUsers(confirmedUsers + 1);
+            setFlag(1);
+            setParticipacao("Cancelar participação nesse evento?");
+            setBtnString("Cancelar");
+        } else {
+            setConfirmedUsers(confirmedUsers - 1);
+            setFlag(0);
+            setParticipacao("Confirmar participação nesse evento?");
+            setBtnString("Participar");
+        }
+        console.log(confirmedUsers);
+    };
+
+    const buttonStyle = {
+        backgroundColor: flag ? '#990000' : '#007BFF', // Vermelho quando !flag, azul quando flag
+    };
+
+    if(props.publicationType === "post"){
         return (
             <div className="publication">
                 <div className="img_and_user">
@@ -15,7 +39,7 @@ export const Post = (props) => {
             </div>
         );
     };
-    if(props.publicationType == "event"){
+    if(props.publicationType === "event"){
         return (
             <div className="publication">
                 <div className="img_and_user">
@@ -30,17 +54,14 @@ export const Post = (props) => {
                     <div className="info"> 
                         <p>{props.eventData}</p>
                         <p>{props.eventTime}</p>
-                        <p>Usuários confirmados: {props.membersConfirmed}</p>
+                        <p>Usuários confirmados: {confirmedUsers}</p> {/* usar props.membersConfirmed? */}
                     </div>
                     <div className="confirmPart">
-                        <p>Confirmar participação nesse evento?</p>
-                        <button id="participate" className="btn">Participar</button>
+                        <p>{participacao}</p>
+                        <button onClick={changeUsersCount} style={buttonStyle} id="participate" className="btn">{btnString}</button>
                     </div>
                 </div>
             </div>
         );
     };
 };
-// AQUI COLOCAR: APERTOU BOTAO, SOMA 1 NO DISPLAY DE QUANTOS PARTICIPANTES
-// MUDA A COR DO BOTAO E O TEXTO DO BOTAO, PARA "REMOVER PARTICIPACAO"
-// SE APERTAR AGORA, DEVE SER SUBTRAIR 1 
