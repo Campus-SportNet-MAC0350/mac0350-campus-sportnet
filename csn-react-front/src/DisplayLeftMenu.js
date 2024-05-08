@@ -13,9 +13,9 @@ export const DisplaySideMenu = (props) => {
 
             {/* Display Items */}
             <Link to='/home' className="menuItem"><img src="homepage.png" alt="Icone" /> Página Inicial</Link>
-            <Link to='/home' className="menuItem"><img src="newpost.png" alt="Icone" /> Publicar</Link>
+            <Link to='/post' className="menuItem"><img src="newpost.png" alt="Icone" /> Publicar</Link>
             <Link to='/home' className="menuItem"><img src="config.png" alt="Icone" /> Opções</Link>
-            <Link to='/home' className="menuItem"><img src="user.png" alt="Icone" /> Perfil</Link>
+            <Link to='/profile' className="menuItem"><img src="user.png" alt="Icone" /> Perfil</Link>
             <Link to='/' className="menuItem"><img src="exit.png" alt="Icone" /> Sair</Link>
 
             <p>© 2024 Lucas Escobar, Rodrigo Michelassi.<br/>All rights reserved.</p>

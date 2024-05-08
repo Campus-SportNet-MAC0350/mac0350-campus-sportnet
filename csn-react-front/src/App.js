@@ -4,6 +4,8 @@ import './App.css';
 import { DisplayBody } from './DisplayBody';
 import { LoginPage } from './LoginPage';
 import { RegisterPage } from './RegisterPage';
+import { ProfilePage } from './ProfilePage';
+import { CreatePublication } from './CreatePublication';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/home" element={<DisplayBody />} />
+          <Route path="/profile" element={<ProfilePage />}/>
+          <Route path="/post" element={<CreatePublication />}/>
         </Routes>
       </div>
     </Router>

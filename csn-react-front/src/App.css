@@ -128,7 +128,7 @@
 
 /*-*-*-* FEED DE NOTÍCIAS *-*-*-*/
 .feed {
-  flex: 2.5; /* Cresce duas vezes mais rápido que leftMenu e rightMenu */
+  flex: 2.5; /* Cresce 2.5 vezes mais rápido que leftMenu e rightMenu */
   display: flex;
   flex-direction: column;
   border: 1px solid #ddd;
@@ -263,8 +263,8 @@
 
 .login_txt {
   text-align: center;
-  font-size: 22px;
-  color: #2d2d2d;
+  font-size: 26px;
+  color: #222;
 }
 
 .login_form {
@@ -352,6 +352,140 @@
   background-color: #f1f1f1;
   margin-bottom: 10px;
   color: #777777;
+}
+
+/*-*-*-* PERFIL *-*-*-*/
+
+.profileInfo {
+  display: block;
+}
+
+.profilePic_and_Username{
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.profilePic {
+  flex: 1;
+}
+
+.profilePic img {
+  width: 140px; 
+  height: 140px;
+  border-radius: 50%;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.usr_and_followers {
+  flex: 2;
+  display: flexbox;
+  text-align: left;
+}
+
+.usr_and_followers p {
+  font-size: 28px;
+  color: #222;
+}
+
+.usr_and_followers h3 {
+  font-size: 16px;
+  color: #222;
+}
+
+.follow_btn {
+  flex: 1;
+  display: flex;
+  text-align: center;
+  padding-right: 30px;
+}
+
+.bioDisplay {
+  color: #222;
+  font-size: 18px;
+  display: block;
+  text-align: left;
+  padding-left: 30px;
+}
+
+/*-*-*-* PUBLICAR *-*-*-*/
+
+.containerPub {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  height: 100vh;
+  background-color: #eee;
+}
+
+.centroPub {
+  width: 50%;
+  height: 80%;
+  background-color: #fff;
+  display: flex;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border: 1px solid #ccc;
+}
+
+.centerTitle {
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+  display: block;
+}
+
+.centerTitle p {
+  color: #222;
+  font-size: 26px;
+  display: block;
+  padding-left: 30px;
+}
+
+.centerTitle textarea {
+  padding: 12px 12px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  width: 80%;
+  height: 150px;
+  font-size: 16px;
+  background-color: #f1f1f1;
+  margin-bottom: 5px;
+  resize: none;
+}
+
+.centerTitle textarea:focus {
+  border: 1px solid #f9f9f9;
+  outline: none;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  width: 80%;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;
+}
+
+.buttonsPub {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 80%;
 }
 
 /*-*-*-* RESPONSIVIDADE *-*-*-*/
