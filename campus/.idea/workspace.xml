@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="685cddaa-c83b-4e41-afd1-303132d6ef66" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/campus_sportnet/models/Event.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/campus_sportnet/models/Event.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/campus_sportnet/models/Post.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/campus_sportnet/models/Post.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/campus_sportnet/models/Student.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/campus_sportnet/models/Student.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/campus_sportnet/models/Team.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/campus_sportnet/models/Team.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/campus_sportnet/models/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/campus_sportnet/models/User.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../csn-react-front/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../csn-react-front/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../csn-react-front/src/RegisterPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../csn-react-front/src/RegisterPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +55,8 @@
       <workItem from="1714043561391" duration="55000" />
       <workItem from="1714050453442" duration="579000" />
       <workItem from="1714052602169" duration="724000" />
+      <workItem from="1715260764821" duration="2073000" />
+      <workItem from="1715295559146" duration="300000" />
     </task>
     <servers />
   </component>

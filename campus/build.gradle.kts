@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation("io.ktor:ktor-server-call-logging:$ktor_version")
 }
 
 tasks.test {
