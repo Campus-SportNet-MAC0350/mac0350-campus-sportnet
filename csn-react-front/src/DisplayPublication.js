@@ -12,7 +12,7 @@ const user2 = {
     username: 'Bea Zika',
     profileImage: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRamm2Y7gFuOKj8Rd9AHmcu1Jh6hVF6XUjvgFjM9fLtg&s',
     postText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis viverra nulla. Nunc vel varius justo, sed blandit nibh. Nunc sit amet volutpat nisi. Donec eget fringilla nunc. Duis suscipit quam non odio euismod tempor. Vestibulum tempor varius pulvinar. Morbi rutrum orci a odio eleifend, et consectetur lorem bibendum. Fusce sagittis nisl non ullamcorper condimentum. Integer egestas, nulla sit amet consectetur tempor, nulla augue consequat justo, porta sollicitudin metus neque at urna. Etiam tincidunt pharetra elit, fringilla semper magna cursus quis. Donec non mi lectus. Duis in efficitur ex, non dictum leo. Fusce sollicitudin porta nisi, non vehicula sem. Aliquam molestie, ligula at tincidunt blandit, enim velit efficitur orci, ac fermentum eros odio sit amet ex. Quisque egestas lacinia lectus, eget mattis augue ultricies in. Aliquam pulvinar accumsan interdum.',
-    imageUrl: 'https://www.ime.usp.br/~maratona/images/logo.png'
+    imageUrl: 'https://www.ime.usp.br/cea/resources/logo-ime-horizontal.png'
 }
 
 const user3 = {
