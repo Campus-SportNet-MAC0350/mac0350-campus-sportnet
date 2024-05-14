@@ -35,7 +35,7 @@ data class Publication(
 )
 
 object Publications:Table(){
-    private val id=integer("id").autoIncrement()
+    val id=integer("id").autoIncrement()
     val publicationType=char("publicationType")
     val publicationText=varchar("text", 255)
     val countParticipants=integer("participants")
