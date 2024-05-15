@@ -23,7 +23,7 @@ class PublicationServiceImpl : PublicationService {
             it[userId]=publication.userId
             it[publicationText]=publication.publicationText
             it[publicationType]=publication.publicationType
-            it[countParticipants]=publication.countParticipants
+            it[countParticipants]=0
             it[dateTime]=publication.dateTime
         }
         insertStmt.resultedValues?.singleOrNull()?.let { resultRowToPublication(it) }

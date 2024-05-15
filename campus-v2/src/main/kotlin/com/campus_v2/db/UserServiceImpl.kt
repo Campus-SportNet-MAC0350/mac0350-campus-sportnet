@@ -15,16 +15,22 @@ class UserServiceImpl : UserService {
             location = row[Users.location],
             followersCount = row[Users.followersCount],
             userType = row[Users.userType],
+            password = row[Users.password],
+            university = row[Users.university],
+            team = row[Users.team]
         )
     }
 
     override suspend fun addUser(user: User): User? = dbQuery {
         val insertStmt=Users.insert {
             it[username]=user.username
+            it[username]=user.password
             it[profileBio]=user.profileBio
             it[location]=user.location
             it[followersCount]=user.followersCount
             it[userType]=user.userType
+            it[university]=user.university
+            it[team]=user.team
         }
         insertStmt.resultedValues?.singleOrNull()?.let { resultRowToUser(it) }
     }

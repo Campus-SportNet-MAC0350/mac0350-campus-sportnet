@@ -41,7 +41,6 @@ class UserService(private val database: Database) {
                 .singleOrNull()
         }
     }
-
     suspend fun update(id: Int, user: ExposedUser) {
         dbQuery {
             Users.update({ Users.id eq id }) {

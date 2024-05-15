@@ -23,11 +23,16 @@ private fun provideDataSource(url:String,driverClass:String):HikariDataSource{
 }
 
 fun Application.configureDatabases() {
-    val driverClass=environment.config.property("storage.driverClassName").getString()
-    val jdbcUrl=environment.config.property("storage.jdbcURL").getString()
-    val db=Database.connect(provideDataSource(jdbcUrl,driverClass))
+//    val driverClass=environment.config.property("storage.driverClassName").getString()
+//    val jdbcUrl=environment.config.property("storage.jdbcURL").getString()
+    val db = Database.connect(
+        url = "jdbc:postgresql://localhost:5432/csnDB",
+        driver = "org.postgresql.Driver",
+        user = "newuser",
+        password = "password"
+    )
     transaction(db){
-        SchemaUtils.create(Users, Publications)
+        SchemaUtils.create(Users,Publications)
     }
 }
 
