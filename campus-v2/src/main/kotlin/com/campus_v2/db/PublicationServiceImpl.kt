@@ -9,12 +9,13 @@ import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 class PublicationServiceImpl : PublicationService {
     private fun resultRowToPublication(resultRow: ResultRow):Publication{
         return Publication(
-            userId = resultRow[Publications.userId],
-            publicationText = resultRow[Publications.publicationText],
-            publicationType = resultRow[Publications.publicationType],
-            countParticipants = resultRow[Publications.countParticipants],
-            dateTime = resultRow[Publications.dateTime],
-            id = resultRow[Publications.id],
+            userId=resultRow[Publications.userId],
+            publicationText=resultRow[Publications.publicationText],
+            publicationType=resultRow[Publications.publicationType],
+            countParticipants=resultRow[Publications.countParticipants],
+            publicationImagePath=resultRow[Publications.publicationImagePath],
+            dateTime=resultRow[Publications.dateTime],
+            id=resultRow[Publications.id],
         )
     }
 
@@ -25,6 +26,7 @@ class PublicationServiceImpl : PublicationService {
             it[publicationType]=publication.publicationType
             it[countParticipants]=0
             it[dateTime]=publication.dateTime
+            it[publicationImagePath]=publication.publicationImagePath
         }
         insertStmt.resultedValues?.singleOrNull()?.let { resultRowToPublication(it) }
     }

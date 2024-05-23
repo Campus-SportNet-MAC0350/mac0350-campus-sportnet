@@ -9,15 +9,16 @@ import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 class UserServiceImpl : UserService {
     private fun resultRowToUser(row: ResultRow):User{
         return User(
-            id = row[Users.id],
-            username = row[Users.username],
-            profileBio = row[Users.profileBio],
-            location = row[Users.location],
-            followersCount = row[Users.followersCount],
-            userType = row[Users.userType],
-            password = row[Users.password],
-            university = row[Users.university],
-            team = row[Users.team]
+            id=row[Users.id],
+            username=row[Users.username],
+            profileBio=row[Users.profileBio],
+            location=row[Users.location],
+            followersCount=row[Users.followersCount],
+            userType=row[Users.userType],
+            password=row[Users.password],
+            university=row[Users.university],
+            team=row[Users.team],
+            profileImagePath = row[Users.profileImagePath]
         )
     }
 
@@ -31,6 +32,7 @@ class UserServiceImpl : UserService {
             it[userType]=user.userType
             it[university]=user.university
             it[team]=user.team
+            it[profileImagePath]=user.profileImagePath
         }
         insertStmt.resultedValues?.singleOrNull()?.let { resultRowToUser(it) }
     }

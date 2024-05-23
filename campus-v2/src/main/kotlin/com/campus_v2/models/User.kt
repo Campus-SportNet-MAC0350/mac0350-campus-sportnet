@@ -17,6 +17,7 @@ data class User(
     val team:String,
     val followersCount:Int=0,
     val userType:Char,
+    val profileImagePath: String? = null,
     val id:Int=0
 )
 
@@ -30,6 +31,7 @@ object Users:Table(){
     val team=varchar("team", 255)
     val userType=char("userType")
     val followersCount=integer("followers")
+    val profileImagePath = varchar("profile_image_path", 255).nullable()
 
     override val primaryKey: PrimaryKey
         get() = PrimaryKey(id)

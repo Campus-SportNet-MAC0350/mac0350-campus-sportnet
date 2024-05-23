@@ -31,6 +31,7 @@ data class Publication(
     val countParticipants:Int,
     @Serializable(with = LocalDateTimeSerializer::class)
     val dateTime: LocalDateTime,
+    val publicationImagePath: String? = null,
     val id:Int=0
 )
 
@@ -40,6 +41,7 @@ object Publications:Table(){
     val publicationText=varchar("text", 255)
     val countParticipants=integer("participants")
     val dateTime=datetime("dateTime")
+    val publicationImagePath=varchar("pub_image_path", 255).nullable()
     val userId=integer("userId").references(Users.id, ReferenceOption.CASCADE)
 
     override val primaryKey: PrimaryKey

@@ -11,5 +11,6 @@ data class UserInfo(
     val university:String,
     val team:String,
     val followersCount:Int=0,
+    val profileImagePath: String? = null,
     val userType:Char,
 )
