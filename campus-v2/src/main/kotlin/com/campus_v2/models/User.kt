@@ -12,7 +12,6 @@ data class User(
     val username:String,
     val password:String,
     val profileBio:String,
-    val location:String,
     val university:String,
     val team:String,
     val followersCount:Int=0,
@@ -26,13 +25,18 @@ object Users:Table(){
     val username=varchar("name",255)
     val password=varchar("password", 255)
     val profileBio=varchar("bio",255)
-    val location=varchar("location",255)
     val university=varchar("university", 255)
     val team=varchar("team", 255)
     val userType=char("userType")
-    val followersCount=integer("followers")
+    val followersCount=integer("followers_count")
     val profileImagePath = varchar("profile_image_path", 255).nullable()
 
     override val primaryKey: PrimaryKey
         get() = PrimaryKey(id)
+}
+
+object UserFollows : Table() {
+    val followerId = integer("follower_id").references(Users.id)
+    val followedId = integer("followed_id").references(Users.id)
+    override val primaryKey = PrimaryKey(followerId, followedId)
 }

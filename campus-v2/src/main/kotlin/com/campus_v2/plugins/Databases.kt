@@ -1,6 +1,7 @@
 package com.campus_v2.plugins
 
 import com.campus_v2.models.Publications
+import com.campus_v2.models.UserFollows
 import com.campus_v2.models.Users
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
@@ -15,8 +16,8 @@ private fun provideDataSource(url:String,driverClass:String):HikariDataSource{
         driverClassName=driverClass
         jdbcUrl=url
         maximumPoolSize=3
-        isAutoCommit = false
-        transactionIsolation = "TRANSACTION_REPEATABLE_READ"
+        isAutoCommit=false
+        transactionIsolation="TRANSACTION_REPEATABLE_READ"
         validate()
     }
     return HikariDataSource(hikariConfig)
@@ -32,7 +33,7 @@ fun Application.configureDatabases() {
         password = "password"
     )
     transaction(db){
-        SchemaUtils.create(Users,Publications)
+        SchemaUtils.create(Users,Publications,UserFollows)
     }
 }
 

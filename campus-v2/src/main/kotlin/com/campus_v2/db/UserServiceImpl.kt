@@ -2,6 +2,7 @@ package com.campus_v2.db
 
 import com.campus_v2.models.User
 import com.campus_v2.models.Users
+import com.campus_v2.models.UserFollows
 import com.campus_v2.plugins.dbQuery
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
@@ -12,7 +13,6 @@ class UserServiceImpl : UserService {
             id=row[Users.id],
             username=row[Users.username],
             profileBio=row[Users.profileBio],
-            location=row[Users.location],
             followersCount=row[Users.followersCount],
             userType=row[Users.userType],
             password=row[Users.password],
@@ -25,9 +25,8 @@ class UserServiceImpl : UserService {
     override suspend fun addUser(user: User): User? = dbQuery {
         val insertStmt=Users.insert {
             it[username]=user.username
-            it[username]=user.password
+            it[password]=user.password
             it[profileBio]=user.profileBio
-            it[location]=user.location
             it[followersCount]=user.followersCount
             it[userType]=user.userType
             it[university]=user.university
@@ -57,5 +56,52 @@ class UserServiceImpl : UserService {
 
     override suspend fun getUser(id: Int): User? = dbQuery{
         Users.select { (Users.id eq id) }.map { resultRowToUser(it) }.singleOrNull()
+    }
+
+    // follow a user
+    override suspend fun followUser(followerId: Int, followedId: Int): Boolean = dbQuery {
+        val insertResult = UserFollows.insert {
+            it[UserFollows.followerId] = followerId
+            it[UserFollows.followedId] = followedId
+        }.insertedCount > 0
+
+        if (insertResult) {
+            Users.update({ Users.id eq followedId }) {
+                with(SqlExpressionBuilder) {
+                    it[followersCount] = followersCount + 1
+                }
+            }
+        }
+        insertResult
+    }
+    // unfollow user
+    override suspend fun unfollowUser(followerId: Int, followedId: Int): Boolean = dbQuery {
+        val deleteResult = UserFollows.deleteWhere {
+            (UserFollows.followerId eq followerId) and
+                    (UserFollows.followedId eq followedId)
+        } > 0
+
+        if (deleteResult) {
+            Users.update({ Users.id eq followedId }) {
+                with(SqlExpressionBuilder) {
+                    it[followersCount] = followersCount - 1
+                }
+            }
+        }
+        deleteResult
+    }
+
+    // get list of users that one specific user follows
+    override suspend fun getFollowedUsers(userId: Int): List<User> = dbQuery {
+        (UserFollows innerJoin Users)
+            .select { UserFollows.followerId eq userId }
+            .map { resultRowToUser(it) }
+    }
+
+    // get list of followers
+    override suspend fun getFollowers(userId: Int): List<User> = dbQuery {
+        (UserFollows innerJoin Users)
+            .select { UserFollows.followedId eq userId }
+            .map { resultRowToUser(it) }
     }
 }
