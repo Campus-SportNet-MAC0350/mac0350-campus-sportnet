@@ -11,7 +11,7 @@ cd csn-react-front
 npm start
 ```
 
-<p>Para executar o back-end, digite:</p>
+<h3>Para executar o back-end, digite:</h3>
 
 ```
 cd campus-v2
@@ -20,7 +20,7 @@ idea .
 
 <p>Ao abrir o IntelliJ Idea, o programa pode ser executado com o botão de execução, no canto superior esquerdo. Ao configurar um banco de dados local com PostgreSQL na sua máquina, e modificando os parâmetros necessários de login e senha no código do back-end, você está pronto para enviar requisições e popular o banco de dados. Seguem alguns exemplos:</p>
 
-<p>Popular a tabela de publicações</p>
+<h3>Popular a tabela de publicações</h3>
 
 ```
 curl -X POST http://localhost:8080/publications -H "Content-Type: application/json" -d '{
@@ -33,7 +33,7 @@ curl -X POST http://localhost:8080/publications -H "Content-Type: application/js
 }'
 ```
 
-<p>Popular a tabela de usuários</p>
+<h3>Popular a tabela de usuários</h3>
 
 ```
 curl -X POST http://localhost:8080/users -H "Content-Type: application/json" -d '{     ─╯
@@ -46,7 +46,7 @@ curl -X POST http://localhost:8080/users -H "Content-Type: application/json" -d 
 }'
 ```
 
-<p>Fazer que um usuário deixe de seguir outro (é necessário existir pelo menos dois usuários no BD, que já se seguem)</p>
+<h3>Fazer que um usuário deixe de seguir outro (é necessário existir pelo menos dois usuários no BD, que já se seguem)</h3>
 
 ```
 curl -X DELETE http://localhost:8080/users/unfollow -H "Content-Type: application/json" -d '{               
