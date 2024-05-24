@@ -15,6 +15,7 @@ data class ExposedUser(val name: String, val age: Int)
 class UserService(private val database: Database) {
     object Users : Table() {
         val id= integer("id").autoIncrement()
+        val email=varchar("email", 255)
         val username=varchar("name",255)
         val password=varchar("password", 255)
         val profileBio=varchar("bio",255)
@@ -45,6 +46,7 @@ class UserService(private val database: Database) {
 
     suspend fun create(user: ExposedUser): Int = dbQuery {
         Users.insert {
+            it[email]= email
             it[username]=username
             it[password]=password
             it[profileBio]=profileBio

@@ -8,7 +8,6 @@ import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
-// arrumar isso conforme implementacao
 fun Routing.publicationRoute(publicationService: PublicationService){
     route("/publications"){
         get {

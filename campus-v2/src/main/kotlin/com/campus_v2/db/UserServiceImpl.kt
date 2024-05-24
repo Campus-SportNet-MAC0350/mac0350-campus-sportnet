@@ -11,6 +11,7 @@ class UserServiceImpl : UserService {
     private fun resultRowToUser(row: ResultRow):User{
         return User(
             id=row[Users.id],
+            email=row[Users.email],
             username=row[Users.username],
             profileBio=row[Users.profileBio],
             followersCount=row[Users.followersCount],
@@ -24,6 +25,7 @@ class UserServiceImpl : UserService {
 
     override suspend fun addUser(user: User): User? = dbQuery {
         val insertStmt=Users.insert {
+            it[email]=user.email
             it[username]=user.username
             it[password]=user.password
             it[profileBio]=user.profileBio

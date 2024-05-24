@@ -9,6 +9,7 @@ import org.jetbrains.exposed.sql.Table
 // @Serializable enables JSON serialization
 @Serializable
 data class User(
+    val email:String,
     val username:String,
     val password:String,
     val profileBio:String,
@@ -22,6 +23,7 @@ data class User(
 
 object Users:Table(){
     val id=integer("id").autoIncrement()
+    val email=varchar("email", 255)
     val username=varchar("name",255)
     val password=varchar("password", 255)
     val profileBio=varchar("bio",255)
