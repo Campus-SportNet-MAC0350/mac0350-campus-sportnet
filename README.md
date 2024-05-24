@@ -8,9 +8,9 @@
 
 <h2>Tecnologias</h2>
 
-![React](https://skillicons.dev/icons?i=react)
-![Ktor](https://skillicons.dev/icons?i=ktor)
-![Ktor](https://skillicons.dev/icons?i=postgresql)
+<a href="https://react.dev" target=”_blank”>![React](https://skillicons.dev/icons?i=react)</a>
+<a href="https://ktor.io" target=”_blank”>![KTOR](https://skillicons.dev/icons?i=ktor)</a>
+<a href="https://www.postgresql.org" target=”_blank”>![PostgreSQL](https://skillicons.dev/icons?i=postgresql)</a>
 
 <h2>Execução</h2>
 
