@@ -287,6 +287,12 @@
   margin-bottom: 10px;
 }
 
+.login_form input:focus {
+  border: 1px solid #f9f9f9;
+  outline: none;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
 .btn {
   width: 100%;
   cursor: pointer;
@@ -465,13 +471,13 @@
 
 .custom-file-upload {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 6px 10px;
   cursor: pointer;
   width: 80%;
   background-color: #f1f1f1;
   border: 1px solid #ddd;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
   color: #333;
   margin-bottom: 10px;
@@ -479,6 +485,25 @@
 }
 
 .custom-file-upload input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload_register {
+  display: inline-block;
+  padding: 6px 10px;
+  cursor: pointer;
+  width: 100%;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.custom-file-upload_register input[type="file"] {
   display: none;
 }
 

@@ -20,7 +20,6 @@ class UserService(private val database: Database) {
         val password=varchar("password", 255)
         val profileBio=varchar("bio",255)
         val university=varchar("university", 255)
-        val team=varchar("team", 255)
         val userType=char("userType")
         val followersCount=integer("followers_count")
         val profileImagePath=varchar("profile_image_path", 255).nullable()
@@ -53,7 +52,6 @@ class UserService(private val database: Database) {
             it[followersCount]=followersCount
             it[userType]=userType
             it[university]=university
-            it[team]=team
             it[profileImagePath]=profileImagePath
 
         }[Users.id]

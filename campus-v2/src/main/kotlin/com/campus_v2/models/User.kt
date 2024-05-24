@@ -14,7 +14,6 @@ data class User(
     val password:String,
     val profileBio:String,
     val university:String,
-    val team:String,
     val followersCount:Int=0,
     val userType:Char,
     val profileImagePath: String? = null,
@@ -28,7 +27,6 @@ object Users:Table(){
     val password=varchar("password", 255)
     val profileBio=varchar("bio",255)
     val university=varchar("university", 255)
-    val team=varchar("team", 255)
     val userType=char("userType")
     val followersCount=integer("followers_count")
     val profileImagePath = varchar("profile_image_path", 255).nullable()

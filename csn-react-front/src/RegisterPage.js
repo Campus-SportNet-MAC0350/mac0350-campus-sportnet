@@ -13,9 +13,10 @@ export const RegisterPage = () => {
                 </div>
                 <div className="login_form">
                     <form>
-                        <input type='text' placeholder='Email' />
                         <input type='text' placeholder='Username' />
+                        <input type='text' placeholder='Email' />
                         <input type='password' placeholder='Senha' />
+                        <input type='text' placeholder='Biografia' />
 
                         <select name="Universidade" id="Universidade" className="select_university">
                             <option value="not_selected" disabled selected>Selecione sua Universidade</option>
@@ -32,10 +33,15 @@ export const RegisterPage = () => {
                                 <input type="radio" name="userT" value="atletica" id="atletica" class="studentType"/>
                                 <label for="atletica">Atlética</label>
                             </div>
+                         
                         </div>
 
                         {/* <label for="avatar">Escolha uma foto de perfil!</label>
                         <input type='file' id="avatar" name="avatar" accept="image/png, image/jpeg"/> */}
+                        <label for="file-upload" class="custom-file-upload_register">
+                            <input id="file-upload" type="file"/>
+                            <h3>Escolha uma foto de perfil</h3>
+                        </label>
                         <Link to='/' className="register_url">Já possui uma conta? Faça Login!</Link>
                         <Link to="/home"><button type="button" className="btn">Cadastrar</button></Link>
                     </form>

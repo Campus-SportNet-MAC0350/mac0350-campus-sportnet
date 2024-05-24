@@ -18,7 +18,6 @@ class UserServiceImpl : UserService {
             userType=row[Users.userType],
             password=row[Users.password],
             university=row[Users.university],
-            team=row[Users.team],
             profileImagePath = row[Users.profileImagePath]
         )
     }
@@ -32,7 +31,6 @@ class UserServiceImpl : UserService {
             it[followersCount]=user.followersCount
             it[userType]=user.userType
             it[university]=user.university
-            it[team]=user.team
             it[profileImagePath]=user.profileImagePath
         }
         insertStmt.resultedValues?.singleOrNull()?.let { resultRowToUser(it) }
