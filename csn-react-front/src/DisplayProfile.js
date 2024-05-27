@@ -35,7 +35,7 @@ export const DisplayProfile = (props) => {
             <div className="profileInfo">
                 <div className="profilePic_and_Username">
                     <div className="profilePic">
-                        <img src={props.profilePic} />
+                        <img src={props.profilePic} alt="a" />
                     </div>
                     <div className="usr_and_followers">
                         <p>{props.username}</p>
