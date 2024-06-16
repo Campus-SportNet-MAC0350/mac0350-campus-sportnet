@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export const RegisterPage = () => {
@@ -10,7 +10,10 @@ export const RegisterPage = () => {
         profileBio: '',
         university: '',
         userType: 'e',
+        profileImagePath: '',
     });
+
+    const navigate = useNavigate();
 
     const [redirect, setRedirect] = useState(false);
 
@@ -25,13 +28,14 @@ export const RegisterPage = () => {
     const handleSubmit = async (e) => {
         e.preventDefault(); 
 
-        if (
+        if(
             !formData.username ||
             !formData.email ||
             !formData.password ||
             !formData.profileBio ||
+            !formData.profileImagePath ||
             formData.university === 'not_selected'
-        ) {
+        ){
             console.error("Por favor, preencha todos os campos.");
             alert("Por favor, preencha todos os campos");
             return;
@@ -45,28 +49,33 @@ export const RegisterPage = () => {
         data.append('profileBio', formData.profileBio);
         data.append('university', formData.university);
         data.append('userType', formData.userType);
+        data.append('profileImagePath', formData.profileImagePath);
 
-        try {
+        try{
             const response = await axios.post('http://localhost:8080/users', formData, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
 
-            if (response.status === 201) {
-                console.log('User registered successfully:', response.data);
+            if(response.status === 201){
+                alert('Usuário registrado com sucesso');
+                console.log('Usuário registrado com sucesso:', response.data);
                 setRedirect(true);
-            } else {
-                console.error('There was an error registering the user!');
+            } 
+            else{
+                console.error('Erro ao registrar o usuário!');
+                alert("Erro ao registrar o usuário!");
             }
-        } catch (error) {
-            console.error('There was an error registering the user!', error);
+        } 
+        catch(error){
+            console.error('Erro ao registrar o usuário!', error);
+            alert("Erro ao registrar o usuário!");
         }
     };
 
-    if (redirect) {
-        return <Link to="/home" />;
-    }
+    if(redirect)
+        navigate('/');
 
     return (
         <div className="containerLogin">
@@ -82,6 +91,7 @@ export const RegisterPage = () => {
                         <input type='text' placeholder='Email' name='email' onChange={handleChange} />
                         <input type='password' placeholder='Senha' name='password' onChange={handleChange} />
                         <input type='text' placeholder='Biografia' name='profileBio' onChange={handleChange} />
+                        <input type='text' placeholder='URL Foto de Perfil' name='profileImagePath' onChange={handleChange} />
 
                         <select name="university" id="university" className="select_university" value={formData.university} onChange={handleChange}>
                             <option value="not_selected" />
@@ -100,11 +110,6 @@ export const RegisterPage = () => {
                             </div>
                          
                         </div>
-
-                        {/* <label for="file-upload" className="custom-file-upload_register">
-                            <input id="file-upload" type="file" name="profile_image_path" onChange={handleChange}/>
-                            <h3>Escolha uma foto de perfil</h3>
-                        </label> */}
                         <Link to='/' className="register_url">Já possui uma conta? Faça Login!</Link>
                         <button type="submit" className="btn">Cadastrar</button>
                     </form>

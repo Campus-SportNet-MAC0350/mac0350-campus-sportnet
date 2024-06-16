@@ -14,8 +14,8 @@ data class User(
     val password:String,
     val profileBio:String,
     val university:String,
-    val followersCount:Int=0,
     val userType:Char,
+    val followersCount:Int=0,
     val profileImagePath: String? = null,
     val id:Int=0
 )

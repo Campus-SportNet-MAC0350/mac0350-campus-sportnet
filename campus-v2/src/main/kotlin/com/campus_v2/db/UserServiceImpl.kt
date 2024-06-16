@@ -28,9 +28,9 @@ class UserServiceImpl : UserService {
             it[username]=user.username
             it[password]=user.password
             it[profileBio]=user.profileBio
-            it[followersCount]=user.followersCount
             it[userType]=user.userType
             it[university]=user.university
+            it[followersCount]=0
             it[profileImagePath]=user.profileImagePath
         }
         insertStmt.resultedValues?.singleOrNull()?.let { resultRowToUser(it) }
