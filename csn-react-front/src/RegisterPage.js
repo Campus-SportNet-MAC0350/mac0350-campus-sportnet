@@ -77,7 +77,7 @@ export const RegisterPage = () => {
     if(redirect)
         navigate('/');
 
-    return (
+    return(
         <div className="containerLogin">
             <div className="Centro">
                 <div className="loginDetails">

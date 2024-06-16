@@ -13,6 +13,7 @@ export const DisplaySideMenu = (props) => {
 
             {/* Display Items */}
             <Link to='/home' className="menuItem"><img src="homepage.png" alt="Icone" /> Página Inicial</Link>
+            <Link to='/events' className="menuItem"><img src="checklist.png" alt="Icone" /> Meus Eventos</Link>
             <Link to='/post' className="menuItem"><img src="newpost.png" alt="Icone" /> Publicar</Link>
             <Link to='/home' className="menuItem"><img src="config.png" alt="Icone" /> Opções</Link>
             <Link to='/profile' className="menuItem"><img src="user.png" alt="Icone" /> Perfil</Link>

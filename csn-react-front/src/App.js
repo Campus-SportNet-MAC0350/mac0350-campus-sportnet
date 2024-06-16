@@ -6,6 +6,7 @@ import { LoginPage } from './LoginPage';
 import { RegisterPage } from './RegisterPage';
 import { ProfilePage } from './ProfilePage';
 import { CreatePublication } from './CreatePublication';
+import { DisplayUserEvents } from './DisplayUserEvents';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/home" element={<DisplayBody />} />
           <Route path="/profile" element={<ProfilePage />}/>
           <Route path="/post" element={<CreatePublication />}/>
+          <Route path="/events" element={<DisplayUserEvents />}/>
         </Routes>
       </div>
     </Router>

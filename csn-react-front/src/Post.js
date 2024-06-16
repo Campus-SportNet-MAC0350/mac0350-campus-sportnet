@@ -4,7 +4,7 @@ export const Post = (props) => {
     let [flag, setFlag] = useState(0);
     let [participacao, setParticipacao] = useState("Confirmar participação nesse evento?");
     let [btnString, setBtnString] = useState("Participar");
-    let [confirmedUsers, setConfirmedUsers] = useState(+props.membersConfirmed);
+    let [confirmedUsers, setConfirmedUsers] = useState(+props.confirmedUsers);
 
     const changeUsersCount = () => {
         if (!flag) {

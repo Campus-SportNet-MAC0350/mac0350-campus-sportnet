@@ -1,23 +1,91 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export const CreatePublication = () =>  {
     const buttonStyle = {
         backgroundColor: '#990000',
     };
+
+    // pegar a hora atual
+    const currentTime = new Date();
+    const formattedDateTime = currentTime.toISOString().split('.')[0];
+
+    const [formData, setFormData] = useState({
+        userId: 1,
+        publicationType: 'e',
+        publicationText: '',
+        countParticipants: 0,
+        dateTime: formattedDateTime,
+        publicationImagePath: '',
+    });
+
+    const navigate = useNavigate();
+
+    const [redirect, setRedirect] = useState(false);
+
+    const handleChange = (e) => {
+        const {name, value, type, files} = e.target;
+        setFormData({
+            ...formData,
+            [name]: type === 'file' ? files[0] : value,
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if(
+            !formData.publicationText ||
+            !formData.publicationImagePath
+        ){
+            console.error("Por favor, preencha todos os campos.");
+            alert("Por favor, preencha todos os campos");
+            return;
+        }
+
+        const data = new FormData();
+
+        data.append('publicationText', formData.publicationText);
+        data.append('publicationImagePath', formData.publicationImagePath);
+
+        try{
+            const response = await axios.post('http://localhost:8080/publications', formData, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if(response.status === 201){
+                alert('Publicado!');
+                console.log('Publicado:', response.data);
+                setRedirect(true);
+            }
+            else{
+                console.error('Erro ao publicar!');
+                alert("Erro ao publicar!");
+            }
+        }
+        catch(error){
+            console.error('Erro ao publicar!');
+            alert("Erro ao publicar!");
+        }
+    };
+
+    if(redirect)
+        navigate('/home');
+
     return(
         <div className="containerPub">
             <div className="centroPub">
                 <div className="centerTitle">
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <p><b>Publicar</b></p>
-                        <textarea placeholder="O que você está pensando?" />
-                        <label for="file-upload" class="custom-file-upload">
-                            <input id="file-upload" type="file"/>
-                            <h3>Escolha uma imagem</h3>
-                        </label>
+                        <textarea placeholder="O que você está pensando?" name='publicationText' onChange={handleChange}/>
+                        <input placeholder='URL da imagem' name='publicationImagePath' onChange={handleChange}/>
                         <div className='buttonsPub'>
-                        <Link to="/home"><button className='btn'>Publicar</button></Link>
+                            <button type='submit' className='btn'>Publicar</button>
                             <Link to="/home"><button className='btn' style={buttonStyle}>Cancelar</button></Link>
                         </div>
                     </form>
