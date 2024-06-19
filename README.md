@@ -46,7 +46,7 @@ curl -X POST http://localhost:8080/publications -H "Content-Type: application/js
 <h3>Popular a tabela de usuários</h3>
 
 ```
-curl -X POST http://localhost:8080/users -H "Content-Type: application/json" -d '{     ─╯
+curl -X POST http://localhost:8080/users -H "Content-Type: application/json" -d '{
     "username": "User1",
     "password": "password1",
     "profileBio": "Bio1",  
