@@ -72,3 +72,4 @@ curl -X DELETE http://localhost:8080/users/unfollow -H "Content-Type: applicatio
 2. [Setup PostgreSQL with Linux and PGAdmin](https://www.cherryservers.com/blog/how-to-install-and-setup-postgresql-server-on-ubuntu-20-04)
 3. [SQL Integration with KTOR](https://blog.stackademic.com/guide-to-sql-database-integration-with-ktor-applications-c6cb52e6c346)
 4. [ReactJS Integration with KTOR](https://www.freecodecamp.org/news/how-to-consume-rest-apis-in-react/)
+5. [Login Authentication on React Applications](https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications)
