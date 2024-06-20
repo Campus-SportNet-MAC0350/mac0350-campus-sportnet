@@ -71,7 +71,7 @@ fun Routing.userRoute(userService: UserService){
             if(email != null && password != null){
                 val user=userService.getUserByLogin(email.toString(), password.toString())
                 if (user != null)
-                    call.respond(HttpStatusCode.OK, user)
+                    call.respond(HttpStatusCode.OK, user.id)
                 else
                     call.respond(HttpStatusCode.NotFound, "User not found")
             }

@@ -9,10 +9,11 @@ export const DisplaySideMenu = (props) => {
             <Link to='/home' className="logo"><img className="logo" src="logo512.png" alt="logo"></img></Link>
 
 
-            <input type='search' placeholder='Pesquisar'></input>
+            {/* <input type='search' placeholder='Pesquisar'></input> */}
 
             {/* Display Items */}
             <Link to='/home' className="menuItem"><img src="homepage.png" alt="Icone" /> Página Inicial</Link>
+            <Link to='/home' className="menuItem"><img src="search-icon.png" alt="Icone" /> Pesquisar</Link>
             <Link to='/events' className="menuItem"><img src="checklist.png" alt="Icone" /> Meus Eventos</Link>
             <Link to='/post' className="menuItem"><img src="newpost.png" alt="Icone" /> Publicar</Link>
             <Link to='/home' className="menuItem"><img src="config.png" alt="Icone" /> Opções</Link>

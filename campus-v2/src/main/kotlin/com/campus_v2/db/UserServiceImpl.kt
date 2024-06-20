@@ -60,7 +60,7 @@ class UserServiceImpl : UserService {
             .singleOrNull()
     }
 
-    override suspend fun getUserByLogin(email: String, pass: String): User? = dbQuery{
+    override suspend fun getUserByLogin(email: String, pass: String): User? = dbQuery {
         Users.select { (Users.email eq email) and (Users.password eq pass) }
             .map { resultRowToUser(it) }
             .singleOrNull()
