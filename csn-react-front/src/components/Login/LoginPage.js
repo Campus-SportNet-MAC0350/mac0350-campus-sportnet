@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import { DisplayBody } from '../Feed/DisplayBody';
 
 export const LoginPage = () => {
     return (
@@ -15,7 +16,7 @@ export const LoginPage = () => {
                         <input type='text' placeholder='Email' />
                         <input type='password' placeholder='Senha' />
                         <Link to="/register" className="register_url">Não possui uma conta? Cadastre-se!</Link>
-                        <Link to="/home"><button className="btn" type="button">Entrar</button></Link>
+                        <Link to="/home"><button className="btn" type="submit">Entrar</button></Link>
                     </form>
                 </div>
             </div>

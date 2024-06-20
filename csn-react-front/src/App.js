@@ -1,12 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import { DisplayBody } from './DisplayBody';
-import { LoginPage } from './LoginPage';
-import { RegisterPage } from './RegisterPage';
-import { ProfilePage } from './ProfilePage';
-import { CreatePublication } from './CreatePublication';
-import { DisplayUserEvents } from './DisplayUserEvents';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import { DisplayBody } from './components/Feed/DisplayBody';
+import { LoginPage } from './components/Login/LoginPage';
+import { RegisterPage } from './components/Register/RegisterPage';
+import { ProfilePage } from './components/Profile/ProfilePage';
+import { CreatePublication } from './components/Publish/CreatePublication';
+import { DisplayUserEvents } from './components/Feed/DisplayUserEvents';
 
 function App() {
   return (
@@ -26,4 +29,3 @@ function App() {
 }
 
 export default App;
-// https://reactjs.org -> react documentation

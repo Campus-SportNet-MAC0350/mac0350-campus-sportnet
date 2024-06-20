@@ -1,6 +1,6 @@
-import { DisplayPublication } from "./DisplayPublication";
-import { DisplaySideMenu } from "./DisplayLeftMenu";
-import { DisplayRightMenu } from "./DisplayRightMenu";
+import { DisplayPublication } from "../Publication/DisplayPublication";
+import { DisplaySideMenu } from "../Menus/DisplayLeftMenu";
+import { DisplayRightMenu } from "../Menus/DisplayRightMenu";
 import React from 'react';
 
 export const DisplayUserEvents = () => {
