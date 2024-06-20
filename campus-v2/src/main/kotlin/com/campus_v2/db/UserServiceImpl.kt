@@ -55,7 +55,15 @@ class UserServiceImpl : UserService {
     }
 
     override suspend fun getUser(id: Int): User? = dbQuery{
-        Users.select { (Users.id eq id) }.map { resultRowToUser(it) }.singleOrNull()
+        Users.select { (Users.id eq id) }
+            .map { resultRowToUser(it) }
+            .singleOrNull()
+    }
+
+    override suspend fun getUserByLogin(email: String, pass: String): User? = dbQuery{
+        Users.select { (Users.email eq email) and (Users.password eq pass) }
+            .map { resultRowToUser(it) }
+            .singleOrNull()
     }
 
     // follow a user
