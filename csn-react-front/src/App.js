@@ -9,7 +9,6 @@ import { ProfilePage } from './components/Profile/ProfilePage';
 import { CreatePublication } from './components/Publish/CreatePublication';
 import { DisplayUserEvents } from './components/Feed/DisplayUserEvents';
 import useToken from './components/App/useToken';
-// import PrivateRoute from './components/PrivateRoute';
 
 const AuthChecker = () => {
   const { token, setToken } = useToken();
