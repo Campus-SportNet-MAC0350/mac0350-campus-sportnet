@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 async function loginUser(credentials) {
@@ -12,6 +13,7 @@ async function loginUser(credentials) {
     if (!response.ok) {
         alert("Usuário ou senha inválido(s)");
         console.error('User not found. Register first!');
+        return null;
     }
     else{
         console.log("User found!");
@@ -22,13 +24,28 @@ async function loginUser(credentials) {
 export const LoginPage = ( { setToken } ) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [redirect, setRedirect] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const token = await loginUser({ email, password });
-        setToken(token);
-        console.log("UID: ", token);
+        const tokenData = await loginUser({ email, password, redirect });
+        if(tokenData){
+            setToken(tokenData);
+            setRedirect(true);
+            console.log("UID: ", tokenData);
+        }
+        else{
+            console.error("[ERROR]: obtaining token");
+        }
     }
+    
+    useEffect(() => {
+        if(redirect){
+            navigate('/home');
+        }
+    }, [redirect, navigate]);
 
     return (
         <div className="containerLogin">

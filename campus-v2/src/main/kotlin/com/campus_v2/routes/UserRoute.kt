@@ -69,7 +69,7 @@ fun Routing.userRoute(userService: UserService){
             val password=call.request.queryParameters["password"]
 
             if(email != null && password != null){
-                val user=userService.getUserByLogin(email.toString(), password.toString())
+                val user=userService.getUserByLogin(email, password)
                 if (user != null)
                     call.respond(HttpStatusCode.OK, user.id)
                 else
