@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -24,28 +24,21 @@ async function loginUser(credentials) {
 export const LoginPage = ( { setToken } ) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [redirect, setRedirect] = useState(false);
 
     const navigate = useNavigate();
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const tokenData = await loginUser({ email, password, redirect });
+        const tokenData = await loginUser({ email, password });
         if(tokenData){
             setToken(tokenData);
-            setRedirect(true);
+            navigate('/home');
             console.log("UID: ", tokenData);
         }
         else{
             console.error("[ERROR]: obtaining token");
         }
     }
-    
-    useEffect(() => {
-        if(redirect){
-            navigate('/home');
-        }
-    }, [redirect, navigate]);
 
     return (
         <div className="containerLogin">

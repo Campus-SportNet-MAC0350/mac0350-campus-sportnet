@@ -14,6 +14,7 @@ const AuthChecker = () => {
   const { token, setToken } = useToken();
   const location = useLocation();
 
+  // console.log("Token = ", token);
   if (!token && location.pathname !== '/register') {
     return <LoginPage setToken={setToken} />;
   }
