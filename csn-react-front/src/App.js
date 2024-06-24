@@ -8,6 +8,7 @@ import { RegisterPage } from './components/Register/RegisterPage';
 import { ProfilePage } from './components/Profile/ProfilePage';
 import { CreatePublication } from './components/Publish/CreatePublication';
 import { DisplayUserEvents } from './components/Feed/DisplayUserEvents';
+import { CreateEvent } from './components/Publish/CreateEvent';
 import useToken from './components/App/useToken';
 
 const AuthChecker = () => {
@@ -26,6 +27,7 @@ const AuthChecker = () => {
       <Route path="/home" element={<DisplayBody token={token} />} />
       <Route path="/profile" element={<ProfilePage token={token} />} />
       <Route path="/post" element={<CreatePublication token={token} />} />
+      <Route path="/postevent" element={<CreateEvent token={token} />} />
       <Route path="/events" element={<DisplayUserEvents token={token} />} />
     </Routes>
   );

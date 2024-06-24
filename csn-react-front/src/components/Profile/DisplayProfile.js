@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { getToken } from '../App/useToken';
 
 // request user data from database
-async function getUserData() {
+export async function getUserData() {
     const id = getToken();
 
     try{
