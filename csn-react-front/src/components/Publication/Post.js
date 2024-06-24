@@ -25,7 +25,8 @@ export const Post = (props) => {
         backgroundColor: flag ? '#990000' : '#007BFF', // Vermelho quando !flag, azul quando flag
     };
 
-    if(props.publicationType === "post"){
+    // publicacao comum
+    if(props.publicationType === "p"){
         return (
             <div className="publication">
                 <div className="img_and_user">
@@ -39,7 +40,9 @@ export const Post = (props) => {
             </div>
         );
     };
-    if(props.publicationType === "event"){
+
+    // evento
+    if(props.publicationType === "e"){
         return (
             <div className="publication">
                 <div className="img_and_user">

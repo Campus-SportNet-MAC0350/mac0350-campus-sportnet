@@ -25,7 +25,7 @@ export const CreatePublication = () =>  {
 
     const [formData, setFormData] = useState({
         userId: token,
-        publicationType: 'e',
+        publicationType: 'p',
         publicationText: '',
         countParticipants: 0,
         dateTime: formattedDateTime,
