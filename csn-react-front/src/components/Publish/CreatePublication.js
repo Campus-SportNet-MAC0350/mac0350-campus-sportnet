@@ -29,6 +29,8 @@ export const CreatePublication = () =>  {
         publicationText: '',
         countParticipants: 0,
         dateTime: formattedDateTime,
+        eventDate: '',
+        eventTime: '',
         publicationImagePath: '',
     });
 

@@ -15,6 +15,8 @@ class PublicationServiceImpl : PublicationService {
             countParticipants=resultRow[Publications.countParticipants],
             publicationImagePath=resultRow[Publications.publicationImagePath],
             dateTime=resultRow[Publications.dateTime],
+            eventDate=resultRow[Publications.eventDate],
+            eventTime=resultRow[Publications.eventTime],
             id=resultRow[Publications.id],
         )
     }
@@ -26,6 +28,8 @@ class PublicationServiceImpl : PublicationService {
             it[publicationType]=publication.publicationType
             it[countParticipants]=0
             it[dateTime]=publication.dateTime
+            it[eventDate]=publication.eventDate
+            it[eventTime]=publication.eventTime
             it[publicationImagePath]=publication.publicationImagePath
         }
         insertStmt.resultedValues?.singleOrNull()?.let { resultRowToPublication(it) }
