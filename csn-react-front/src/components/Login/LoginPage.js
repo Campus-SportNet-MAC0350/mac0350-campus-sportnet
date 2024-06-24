@@ -32,8 +32,8 @@ export const LoginPage = ( { setToken } ) => {
         const tokenData = await loginUser({ email, password });
         if(tokenData){
             setToken(tokenData);
-            navigate('/home');
             console.log("UID: ", tokenData);
+            navigate('/home');
         }
         else{
             console.error("[ERROR]: obtaining token");

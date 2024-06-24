@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
+// retornar o token do session storage
+export const getToken = () => {
+    const tokenString = sessionStorage.getItem('token');
+    return tokenString ? JSON.parse(tokenString) : null;
+}
+
 export default function useToken() {
-    // retornar o token do session storage.
-    const getToken = () => {
-        const tokenString = sessionStorage.getItem('token');
-        return tokenString ? JSON.parse(tokenString) : null;
-    }
 
     const [token, setToken] = useState(getToken());
 

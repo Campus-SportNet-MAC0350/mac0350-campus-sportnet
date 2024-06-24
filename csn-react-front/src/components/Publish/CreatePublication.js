@@ -1,9 +1,20 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { getToken } from '../App/useToken';
 
 export const CreatePublication = () =>  {
+    const token = getToken();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!token) {
+            console.error("[ERROR]: No token identified");
+            navigate("/");
+        }
+    }, [token, navigate]);
+
     const buttonStyle = {
         backgroundColor: '#990000',
     };
@@ -13,15 +24,13 @@ export const CreatePublication = () =>  {
     const formattedDateTime = currentTime.toISOString().split('.')[0];
 
     const [formData, setFormData] = useState({
-        userId: 1,
+        userId: token,
         publicationType: 'e',
         publicationText: '',
         countParticipants: 0,
         dateTime: formattedDateTime,
         publicationImagePath: '',
     });
-
-    const navigate = useNavigate();
 
     const [redirect, setRedirect] = useState(false);
 
@@ -73,8 +82,11 @@ export const CreatePublication = () =>  {
         }
     };
 
-    if(redirect)
-        navigate('/home');
+    useEffect(() => {
+        if (redirect) {
+            navigate('/home');
+        }
+    }, [redirect, navigate]);
 
     return(
         <div className="containerPub">
