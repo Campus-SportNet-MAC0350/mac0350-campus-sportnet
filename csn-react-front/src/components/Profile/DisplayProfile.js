@@ -148,22 +148,23 @@ export const DisplayProfile = (props) => {
                     </div>
                 </div>
                 <div className="bioDisplay">
-                    <p>{user.university}</p>
-                </div>
-                <div className="bioDisplay">
-                    <b><p>{user.profileBio}</p></b>
+                    <b><p>{user.university}</p></b>
+                    <p>{user.profileBio}</p>
                 </div>
             </div>
-            {publications.map((publication) => (
-                <Post
-                    key={publication.id}
-                    publicationType={publication.publicationType}
-                    username={user.username}
-                    profileImage={user.profileImagePath}
-                    postText={publication.publicationText}
-                    imageUrl={publication.publicationImagePath}
-                />
-            ))}
+            {publications
+                .sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime))
+                .map((publication) => (
+                    <Post
+                        key={publication.id}
+                        publicationType={publication.publicationType}
+                        username={user.username}
+                        profileImage={user.profileImagePath}
+                        postText={publication.publicationText}
+                        imageUrl={publication.publicationImagePath}
+                    />
+                ))
+            }
         </div>
     )
 }

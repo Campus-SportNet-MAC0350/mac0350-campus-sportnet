@@ -24,8 +24,11 @@ export const DisplayRightMenu = () => {
     return(
         <div className="rightMenu">
             <div className="img_and_user_right">
-                {user && <img src={user.profileImagePath} alt="pfp" className="profile_picture"/>}
-                {user && <p className="user">{user.username}</p>}
+                {user && <img src={user.profileImagePath} alt="pfp"/>}
+                <div className="text_container">
+                    {user && <p className="username">{user.username}</p>}
+                    {user && <p className="university">{user.university}</p>}
+                </div>
             </div>
         </div>
     );

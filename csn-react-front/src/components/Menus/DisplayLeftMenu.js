@@ -31,7 +31,7 @@ export const DisplaySideMenu = () => {
 
             {/* Display Items */}
             <Link to='/home' className="menuItem"><img src="homepage.png" alt="Icone" /> Página Inicial</Link>
-            <Link to='/home' className="menuItem"><img src="search-icon.png" alt="Icone" /> Pesquisar</Link>
+            <Link to='/search' className="menuItem"><img src="search-icon.png" alt="Icone" /> Pesquisar</Link>
             <Link to='/events' className="menuItem"><img src="checklist.png" alt="Icone" /> Meus Eventos</Link>
             <Link to='/post' className="menuItem"><img src="newpost.png" alt="Icone" /> Publicar</Link>
             {user && user.userType === 'a' && (
