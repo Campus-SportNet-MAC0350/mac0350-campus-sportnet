@@ -100,14 +100,77 @@ export const DisplayProfile = (props) => {
         fetchPublications();
     }, [id]);
 
-    // add a follower on the screen
-    // atualizar no bd tambem!
-    const changeFollow = () => {
-        if (!flag) {
+    // follow and unfollow profile
+    const changeFollow = async () => {
+        const followData = {
+            followerId: token,
+            followedId: id,
+        };
+
+        // follow another profile
+        if(!flag){
+            if(!followData.followedId || !followData.followerId){
+                console.error("[ERRO]: fazer login");
+                return;
+            }
+
+            try{
+                const response = await fetch('http://localhost:8080/users/follow', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(followData),
+                });
+
+                if (response.status === 201) {
+                    const data = await response.json();
+                    console.log('User followed:', data);
+                } 
+                else{
+                    const errorData = await response.json();
+                    console.error('[ERROR]: Following user!', errorData);
+                    return;
+                }
+            } 
+            catch (error) {
+                console.error('[ERROR]: Unable to follow user', error);
+            }
+
             setFollowers(followers + 1);
             setFlag(1);
             setBtnString("Deixar de seguir");
-        } else {
+        } 
+
+        // unfollow another profile
+        else{
+            if(!followData.followedId || !followData.followerId){
+                console.error("[ERRO]: fazer login");
+                return;
+            }
+
+            try{
+                const response = await fetch('http://localhost:8080/users/unfollow', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(followData),
+                });
+
+                if(response.ok){
+                    const data = await response.json();
+                    console.log('User unfollowed:', data);
+                } 
+                else{
+                    const errorData = await response.json();
+                    console.error('[ERROR]: Unfollowing user!', errorData);
+                }
+            }
+            catch(error){
+                console.error("[ERROR]: Unable to unfollow user!", error);
+            }
+
             setFollowers(followers - 1);
             setFlag(0);
             setBtnString("Seguir");
