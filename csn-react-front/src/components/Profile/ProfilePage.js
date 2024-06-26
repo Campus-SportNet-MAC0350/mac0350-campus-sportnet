@@ -4,7 +4,7 @@ import { DisplaySideMenu } from "../Menus/DisplayLeftMenu";
 import { DisplayProfile } from './DisplayProfile';
 
 export const ProfilePage = () =>  {
-    const id = useParams();
+    const { id } = useParams();
 
     return(
         <div className="publication-body">

@@ -11,7 +11,7 @@ export const DisplaySideMenu = () => {
     // load user data
     useEffect(() => {
         const fetchUser = async () => {
-            const userData = await getUserData();
+            const userData = await getUserData(id);
             if (!userData) {
                 console.error("[ERROR]: User not identified");
                 navigate("/");
@@ -21,7 +21,7 @@ export const DisplaySideMenu = () => {
             }
         };
         fetchUser();
-    }, [navigate]);
+    }, [id, navigate]);
 
     return (
         <div className="leftMenu">
