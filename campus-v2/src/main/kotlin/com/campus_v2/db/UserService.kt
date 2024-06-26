@@ -11,6 +11,7 @@ interface UserService {
     suspend fun getUserByLogin(email: String, pass: String):User?
     suspend fun followUser(followerId: Int, followedId: Int): Boolean
     suspend fun unfollowUser(followerId: Int, followedId: Int): Boolean
+    suspend fun getFollowedUser(followerId: Int, followedId: Int): Boolean
     suspend fun getFollowedUsers(userId: Int): List<User>
     suspend fun getFollowers(userId: Int): List<User>
 }

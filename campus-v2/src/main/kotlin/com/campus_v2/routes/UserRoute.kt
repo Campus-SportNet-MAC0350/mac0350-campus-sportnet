@@ -78,7 +78,23 @@ fun Routing.userRoute(userService: UserService){
             else
                 call.respond(HttpStatusCode.NotFound, "Invalid user")
         }
+        get("/follow") {
+            val followerId = call.parameters["followerId"]?.toIntOrNull()
+            val followedId = call.parameters["followedId"]?.toIntOrNull()
 
+            if (followerId == null || followedId == null) {
+                call.respond(HttpStatusCode.BadRequest, mapOf("error" to "followerId or followedId missing or invalid"))
+                return@get
+            }
+
+            val result = userService.getFollowedUser(followerId, followedId)
+
+            if (result) {
+                call.respond(HttpStatusCode.OK, mapOf("message" to "Unfollow"))
+            } else {
+                call.respond(HttpStatusCode.NoContent)
+            }
+        }
         post("/follow") {
             val request = call.receive<FollowRequest>()
             val result = userService.followUser(request.followerId, request.followedId)

@@ -3,7 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { Post } from "../Publication/Post";
 import { getToken } from '../App/useToken';
 
-// request user data from database
+/* 
+ * FUNCTION: Request user data from database
+ * Send a GET request to back-end
+ * If a user matching the ID is found
+ * returns a object with the user data
+ * this data is printed on the profile page
+ */
 export async function getUserData(id) {
     try {
         const response = await fetch(`http://localhost:8080/users/id?id=${id}`, {
@@ -31,7 +37,13 @@ export async function getUserData(id) {
     }
 }
 
-// request user publications from database
+/* 
+ * FUNCTION: Request user publications from database
+ * Send a GET request to back-end
+ * If a publication by the user matching the ID is found
+ * attach the object concerning the publication to a list
+ * the publications are shown on the screen, ordered by post-data
+ */
 export async function getUserPublications(id) {
     try {
         const response = await fetch(`http://localhost:8080/publications/userinfo/${id}`, {
@@ -60,6 +72,50 @@ export async function getUserPublications(id) {
     }
 }
 
+/* 
+ * FUNCTION: Check if the logged user follows the profile user
+ * Send a GET request to back-end
+ * If a user matching the followerId and a user matching the followedId
+ * are found on the follow table on the database
+ * returns true, else returns false
+ * note: console error is printed when a user don't follow another
+ * because the back-end was unable to find the data requested
+ */
+async function checkIfFollowing(followerId, followedId) {
+
+    const followData = {
+        followerId: followerId,
+        followedId: followedId,
+    };
+
+    try {
+        const response = await fetch(`http://localhost:8080/users/follow?followerId=${followData.followerId}&followedId=${followData.followedId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (response.status === 200) {
+            const data = await response.json();
+            console.log("You follow this profile!", data);
+            return true;
+        } 
+        else {
+            console.log("You don't follow this profile!");
+            return false;
+        }
+    } catch(error){
+        console.error('[ERROR]: Unable to fetch follow', error);
+        return false;
+    }
+}
+
+/* 
+ * FUNCTION: Show user profile
+ * Use the functions above and display the user profile
+ * This may be called from logged user profile or a search profile
+ */
 export const DisplayProfile = (props) => {
     let [flag, setFlag] = useState(0);
     let [btnString, setBtnString] = useState("Seguir");
@@ -100,7 +156,33 @@ export const DisplayProfile = (props) => {
         fetchPublications();
     }, [id]);
 
-    // follow and unfollow profile
+    // check if current user follows the profile user
+    useEffect(() => {
+        const checkFollowingStatus = async () => {
+            if (token !== id) {
+                const isFollowing = await checkIfFollowing(token, id);
+                if (isFollowing) {
+                    setFlag(1);
+                    setBtnString('Deixar de Seguir');
+                } 
+                else {
+                    setFlag(0);
+                    setBtnString('Seguir')
+                }
+            }
+        };
+
+        checkFollowingStatus();
+    }, [id, token]);
+
+    /* 
+     * FUNCTION: Follow/Unfollow user
+     * Send a POST request to back-end
+     * If the user is followed, unfollow the user
+     * If the user is not followed, start following
+     * Set the follow display on the page to +1 or -1
+     * Change the button text and color
+     */
     const changeFollow = async () => {
         const followData = {
             followerId: token,

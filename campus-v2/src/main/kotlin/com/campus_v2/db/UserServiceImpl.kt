@@ -99,6 +99,15 @@ class UserServiceImpl : UserService {
         deleteResult
     }
 
+    // check if a user follows another
+    override suspend fun getFollowedUser(followerId: Int, followedId: Int): Boolean = dbQuery {
+        val result = UserFollows.select {
+            (UserFollows.followerId eq followerId) and (UserFollows.followedId eq followedId)
+        }.count() > 0
+
+        return@dbQuery result
+    }
+
     // get list of users that one specific user follows
     override suspend fun getFollowedUsers(userId: Int): List<User> = dbQuery {
         (UserFollows innerJoin Users)
