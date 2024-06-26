@@ -1,6 +1,6 @@
-import { Post } from "../Publication/Post";
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Post } from "../Publication/Post";
 import { getToken } from '../App/useToken';
 
 // request user data from database
@@ -79,6 +79,8 @@ export const DisplayProfile = (props) => {
     const [publications, setPublications] = useState([]);
 
     const navigate = useNavigate();
+
+    const id = props.userId;
 
     // load user data
     useEffect(() => {

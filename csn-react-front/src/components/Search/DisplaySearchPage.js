@@ -41,7 +41,7 @@ export const DisplaySearchPage = () => {
                 }
 
                 const data = await response.json();
-                setResults(data); // Atualiza o estado com os resultados
+                setResults(data);
             } 
             catch(error){
                 console.error("[ERROR]: Searching users", error);
@@ -70,14 +70,16 @@ export const DisplaySearchPage = () => {
                 </div>
                 <div className="results">
                     {results.map(result => (
-                        <div className="search_icon" key={result.id}>
-                            <img src={result.profileImagePath} alt="pfp" className="search_profile_picture"/>
-                            <div className="text_container">
-                                <p className="username">{result.username}</p>
-                                <p className="university">{result.profileBio}</p>
-                                <p className="university">{result.university}</p>
+                        <Link to={`/profile/${result.id}`} className='searchLink' key={result.id}>
+                            <div className="search_icon">
+                                <img src={result.profileImagePath} alt="pfp" className="search_profile_picture"/>
+                                <div className="text_container">
+                                    <p className="username">{result.username}</p>
+                                    <p className="university">{result.profileBio}</p>
+                                    <p className="university">{result.university}</p>
+                                </div>
                             </div>
-                        </div>
+                        </Link> 
                     ))}
                 </div>
             </div>

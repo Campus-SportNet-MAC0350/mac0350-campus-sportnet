@@ -26,7 +26,7 @@ const AuthChecker = () => {
       <Route path="/" element={<LoginPage setToken={setToken} />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/home" element={<DisplayBody token={token} />} />
-      <Route path="/profile" element={<ProfilePage token={token} />} />
+      <Route path="/profile/:id?" element={<ProfilePage token={token} />} />
       <Route path="/post" element={<CreatePublication token={token} />} />
       <Route path="/postevent" element={<CreateEvent token={token} />} />
       <Route path="/events" element={<DisplayUserEvents token={token} />} />
