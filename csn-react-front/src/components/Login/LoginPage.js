@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+/* 
+ * FUNCTION: fetch login
+ * Sends a GET request to backend, checking if the email and password are registered
+ * If so, navigate to "/home" route (feed)
+ * Else, alert the user
+ */
 async function loginUser(credentials) {
     const { email, password } = credentials;
     const response = await fetch(`http://localhost:8080/users/login?email=${email}&password=${password}`, {
@@ -21,6 +27,12 @@ async function loginUser(credentials) {
     return response.json();
 }
 
+/* 
+ * FUNCTION: Display login page
+ * Call login function and receive token (response.json())
+ * Set token to the ID of the logged user, if successful
+ * Send user to "/home" route (feed)
+ */
 export const LoginPage = ( { setToken } ) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

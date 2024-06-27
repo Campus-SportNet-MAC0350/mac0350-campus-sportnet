@@ -32,6 +32,12 @@ export const DisplayRightMenu = () => {
                     {user && <p className="university">{user.university}</p>}
                 </div>
             </div>
+            <div className="followersTxt">
+                <p className="username">Seguindo</p>
+            </div>
+            <div className="followersTxt">
+                <p className="username">Seguidores</p>
+            </div>
         </div>
     );
 };

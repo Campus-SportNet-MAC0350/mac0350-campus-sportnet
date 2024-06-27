@@ -4,6 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { getToken } from '../App/useToken';
 
+/* 
+ * FUNCTION: Create a new publication
+ * This function publishs a normal-type publication
+ * Make POST requests to backend saving the publication data
+ * Redirects user to "/home" route (feed page)
+ */
 export const CreatePublication = () =>  {
     const token = getToken();
     const navigate = useNavigate();
@@ -44,6 +50,11 @@ export const CreatePublication = () =>  {
         });
     };
 
+    /* 
+     * FUNCTION: Handle inputs submit
+     * Make a POST to backend
+     * Create a new publication for the logged user
+     */
     const handleSubmit = async (e) => {
         e.preventDefault();
 

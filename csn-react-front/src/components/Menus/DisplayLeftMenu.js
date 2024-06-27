@@ -3,6 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getUserData } from '../Profile/DisplayProfile';
 import { getToken } from '../App/useToken';
 
+/* 
+ * FUNCTION: Display left menu
+ * Fixed items on the menu
+ * Gets the id of the logged user to load profile
+ */
 export const DisplaySideMenu = () => {
     const [user, setUser] = useState(null);
     const navigate = useNavigate();

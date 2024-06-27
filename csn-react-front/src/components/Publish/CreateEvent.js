@@ -3,6 +3,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { getToken } from '../App/useToken';
 
+/* 
+ * FUNCTION: Create a new event post
+ * This page is available only for users registered as "ATLETICA"
+ * Send POST requests to back-end to create an event publication
+ * This publication takes date, time, and users can confirm if they are attending
+ * (OPTIONAL LATER): add the list of users attending an event?
+ */
 export const CreateEvent = () => {
     const token = getToken();
     const navigate = useNavigate();
@@ -43,6 +50,12 @@ export const CreateEvent = () => {
         }));
     };
 
+    /* 
+     * FUNCTION: Handle the submitted data from inputs
+     * Get the input values and send a POST request to backend
+     * If the post was created, return an OK message
+     * Navigate back to "/home" route (feed)
+     */
     const handleSubmit = async (e) => {
         e.preventDefault();
 

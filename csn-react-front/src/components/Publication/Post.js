@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 
+/* 
+ * FUNCTION: Display a publication
+ * Receives the publication data on props
+ * This data is supposed to be pre-obtained on another js file
+ * Display username, publication text and image
+ * If it is an event, shows date and time
+ */
 export const Post = (props) => {
     let [flag, setFlag] = useState(0);
     let [participacao, setParticipacao] = useState("Confirmar participação nesse evento?");
@@ -25,7 +32,7 @@ export const Post = (props) => {
         backgroundColor: flag ? '#990000' : '#007BFF', // Vermelho quando !flag, azul quando flag
     };
 
-    // publicacao comum
+    // normal publication
     if(props.publicationType === "p"){
         return (
             <div className="publication">
@@ -41,7 +48,7 @@ export const Post = (props) => {
         );
     };
 
-    // evento
+    // event publication
     if(props.publicationType === "e"){
         return (
             <div className="publication">

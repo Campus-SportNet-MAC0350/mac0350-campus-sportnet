@@ -231,8 +231,28 @@
 /*-*-*-* MENU DIREITO *-*-*-*/
 .rightMenu {
   text-align: center;
-  display: flex;
+  display: block;
   padding: 30px;
+}
+
+.followersTxt {
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+  color: #000;
+  margin-bottom: 5px;
+  font-size: 20px;
+  line-height: 30px;
+  border-radius: 5px;
+  padding: 10px 15px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.followersTxt:hover {
+  background: #e9e9e9;
+  color: #000;
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .img_and_user_right {
@@ -381,7 +401,7 @@
   margin-bottom: 10px;
   color: #777777;
 }
-
+ 
 /*-*-*-* PERFIL *-*-*-*/
 
 .profileInfo {
@@ -653,3 +673,5 @@
       max-width: 100%;
   }
 }
+
+/* .rightMenu */

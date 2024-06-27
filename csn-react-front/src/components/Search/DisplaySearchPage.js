@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getToken } from '../App/useToken';
 
+/* 
+ * FUNCTION: Display the search page
+ * Look for usernames matching the input on the database
+ * Return a list of all the user objects while typing
+ * Display the username, university and bio
+ * Make the display clickable to travel to the user profile
+ */
 export const DisplaySearchPage = () => {
     const token = getToken();
     const navigate = useNavigate();
@@ -16,6 +23,12 @@ export const DisplaySearchPage = () => {
         }
     }, [token, navigate]);
 
+    /* 
+     * FUNCTION: Handle the input typed text
+     * Send a GET request to backend whenever the input changes
+     * Return a list of users matching the username typed
+     * Set those objects to a list
+     */
     const handleChange = async (e) => {
         const value = e.target.value;
         setQuery(value);

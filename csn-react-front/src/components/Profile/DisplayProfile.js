@@ -100,7 +100,7 @@ async function checkIfFollowing(followerId, followedId) {
             const data = await response.json();
             console.log("You follow this profile!", data);
             return true;
-        } 
+        }
         else {
             console.log("You don't follow this profile!");
             return false;

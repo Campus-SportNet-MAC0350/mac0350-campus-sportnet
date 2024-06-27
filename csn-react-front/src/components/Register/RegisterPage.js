@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'; 
 
+/* 
+ * FUNCTION: Show register page
+ * Load functions and show register page
+ * Process HTTP requests to POST on database
+ */
 export const RegisterPage = () => {
     const [formData, setFormData] = useState({
         username: '',
@@ -25,6 +30,14 @@ export const RegisterPage = () => {
         });
     };
 
+    /* 
+     * FUNCTION: Handle the form submit
+     * Check if all the data are filled
+     * Create new data object based on the inputs
+     * Send a POST request to backend
+     * If the system was able to create a new user, returns OK
+     * Navigate to the login page
+     */
     const handleSubmit = async (e) => {
         e.preventDefault(); 
 
