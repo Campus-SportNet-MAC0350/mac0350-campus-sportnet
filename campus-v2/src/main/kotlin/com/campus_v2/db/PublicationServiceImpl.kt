@@ -1,12 +1,11 @@
 package com.campus_v2.db
 
-import com.campus_v2.models.Publications
-import com.campus_v2.models.Publication
+import com.campus_v2.models.*
 import com.campus_v2.plugins.dbQuery
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 
-class PublicationServiceImpl : PublicationService {
+class PublicationServiceImpl(private val userService: UserService) : PublicationService {
     private fun resultRowToPublication(resultRow: ResultRow):Publication{
         return Publication(
             userId=resultRow[Publications.userId],
@@ -45,7 +44,27 @@ class PublicationServiceImpl : PublicationService {
         Publications.selectAll().map { resultRowToPublication(it) }
     }
 
-    override suspend fun deletePublication(id: Int): Boolean= dbQuery {
+    override suspend fun deletePublication(id: Int): Boolean = dbQuery {
         Publications.deleteWhere { Publications.id eq id }>0
+    }
+
+    override suspend fun getFollowedPublications(id:Int):List<UserAndPublication> = dbQuery {
+        val followedUserIds = UserFollows.slice(UserFollows.followedId)
+            .select { UserFollows.followerId eq id }
+            .map { it[UserFollows.followedId] }
+
+        val publications = Publications.select { (Publications.userId inList followedUserIds) or (Publications.userId eq id) }
+            .map { resultRowToPublication(it) }
+
+        publications.map { publication ->
+            println("PublicationID ${publication.id}")
+        }
+
+        publications.map { publication ->
+            val user = Users.select { Users.id eq publication.userId }
+                .map { userService.getUserFromResultRow(it) }
+                .firstOrNull() ?: throw IllegalStateException("User not found for publication ID: ${publication.id}")
+            UserAndPublication(user, publication)
+        }
     }
 }

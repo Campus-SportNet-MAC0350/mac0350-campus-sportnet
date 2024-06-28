@@ -1,7 +1,10 @@
 package com.campus_v2.db
 
 import com.campus_v2.models.User
+import org.jetbrains.exposed.sql.ResultRow
+
 interface UserService {
+    suspend fun getUserFromResultRow(row: ResultRow): User
     suspend fun addUser(user: User):User?
     suspend fun updateUser(user: User):Boolean
     suspend fun deleteUser(user: User):Boolean

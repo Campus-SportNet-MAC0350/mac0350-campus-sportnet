@@ -22,6 +22,10 @@ class UserServiceImpl : UserService {
         )
     }
 
+    override suspend fun getUserFromResultRow(row: ResultRow): User {
+        return resultRowToUser(row)
+    }
+
     override suspend fun addUser(user: User): User? = dbQuery {
         val insertStmt=Users.insert {
             it[email]=user.email

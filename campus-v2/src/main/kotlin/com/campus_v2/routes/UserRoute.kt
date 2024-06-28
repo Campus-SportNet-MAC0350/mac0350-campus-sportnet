@@ -99,7 +99,7 @@ fun Routing.userRoute(userService: UserService){
             val request = call.receive<FollowRequest>()
             val result = userService.followUser(request.followerId, request.followedId)
             if (result) {
-                call.respond(HttpStatusCode.Created, mapOf("message" to "Delete Successful"))
+                call.respond(HttpStatusCode.Created, mapOf("message" to "Follow Successful"))
             } else {
                 call.respond(HttpStatusCode.NotFound, mapOf("message" to "User not found"))
             }
@@ -114,7 +114,7 @@ fun Routing.userRoute(userService: UserService){
             val request = call.receive<FollowRequest>()
             val result = userService.unfollowUser(request.followerId, request.followedId)
             if (result) {
-                call.respond(HttpStatusCode.OK, mapOf("message" to "Delete Successful"))
+                call.respond(HttpStatusCode.OK, mapOf("message" to "Unfollow Successful"))
             } else {
                 call.respond(HttpStatusCode.NotFound, mapOf("message" to "User not found"))
             }

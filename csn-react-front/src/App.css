@@ -45,7 +45,7 @@
 /*-*-*-* MENU ESQUERDO *-*-*-*/
 
 .logo img {
-  width: 80px;
+  width: 160px;
   height: auto;
   margin-bottom: 10px;
 }
@@ -300,7 +300,7 @@
 }
 
 .logo_login {
-  width: 30%;
+  width: 50%;
 }
 
 .login_txt {
@@ -673,5 +673,3 @@
       max-width: 100%;
   }
 }
-
-/* .rightMenu */

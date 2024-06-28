@@ -31,6 +31,17 @@ fun Routing.publicationRoute(publicationService: PublicationService){
             val userInfo = publicationService.getAllPublicationsFromUser(userId)
             call.respond(HttpStatusCode.OK, userInfo)
         }
+        get("/followedinfo/{userId}"){
+            val userId = call.parameters["userId"]?.toIntOrNull()
+
+            if(userId == null){
+                call.respond(HttpStatusCode.BadRequest, "Invalid user ID")
+                return@get
+            }
+
+            val publications = publicationService.getFollowedPublications(userId)
+            call.respond(HttpStatusCode.OK, publications)
+        }
         delete("/{id}") {
             call.parameters["id"]?.toInt()?.let {
                 publicationService.deletePublication(it)

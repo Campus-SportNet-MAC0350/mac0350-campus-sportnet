@@ -11,6 +11,6 @@ val appModule= module {
         UserServiceImpl()
     }
     single<PublicationService> {
-        PublicationServiceImpl()
+        PublicationServiceImpl(get())
     }
 }

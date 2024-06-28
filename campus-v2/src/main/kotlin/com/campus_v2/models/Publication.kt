@@ -51,3 +51,9 @@ object Publications:Table(){
     override val primaryKey: PrimaryKey
         get() = PrimaryKey(id)
 }
+
+@Serializable
+data class UserAndPublication(
+    val user: User,
+    val publication: Publication,
+)
