@@ -1,6 +1,8 @@
 package com.campus_v2.routes
 
 import com.campus_v2.db.PublicationService
+import com.campus_v2.models.FollowRequest
+import com.campus_v2.models.ParticipateRequest
 import com.campus_v2.models.Publication
 import io.ktor.http.*
 import io.ktor.server.application.*
@@ -46,6 +48,26 @@ fun Routing.publicationRoute(publicationService: PublicationService){
             call.parameters["id"]?.toInt()?.let {
                 publicationService.deletePublication(it)
             } ?: call.respond(HttpStatusCode.BadRequest, "Provide ID")
+        }
+        post("/participateInEvent") {
+            val request = call.receive<ParticipateRequest>()
+            val result = publicationService.participateEvent(request.userId, request.eventId)
+            if (result){
+                call.respond(HttpStatusCode.Created, mapOf("message" to "Participating"))
+            }
+            else {
+                call.respond(HttpStatusCode.NotFound, mapOf("message" to "Unable to Participate"))
+            }
+        }
+        delete("/stopParticipating") {
+            val request = call.receive<ParticipateRequest>()
+            val result = publicationService.stopParticipating(request.userId, request.eventId)
+            if (result) {
+                call.respond(HttpStatusCode.OK, mapOf("message" to "Stopped Participating"))
+            }
+            else {
+                call.respond(HttpStatusCode.NotFound, mapOf("message" to "Unable to stop participating"))
+            }
         }
     }
 }

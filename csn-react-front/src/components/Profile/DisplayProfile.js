@@ -208,6 +208,9 @@ export const DisplayProfile = (props) => {
                 if (response.status === 201) {
                     const data = await response.json();
                     console.log('User followed:', data);
+                    setFollowers(followers + 1);
+                    setFlag(1);
+                    setBtnString("Deixar de seguir");
                 } 
                 else{
                     const errorData = await response.json();
@@ -219,9 +222,7 @@ export const DisplayProfile = (props) => {
                 console.error('[ERROR]: Unable to follow user', error);
             }
 
-            setFollowers(followers + 1);
-            setFlag(1);
-            setBtnString("Deixar de seguir");
+            
         } 
 
         // unfollow another profile

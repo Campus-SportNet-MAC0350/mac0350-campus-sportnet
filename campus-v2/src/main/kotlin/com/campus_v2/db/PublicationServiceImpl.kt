@@ -2,6 +2,7 @@ package com.campus_v2.db
 
 import com.campus_v2.models.*
 import com.campus_v2.plugins.dbQuery
+import io.ktor.events.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 
@@ -66,5 +67,36 @@ class PublicationServiceImpl(private val userService: UserService) : Publication
                 .firstOrNull() ?: throw IllegalStateException("User not found for publication ID: ${publication.id}")
             UserAndPublication(user, publication)
         }
+    }
+
+    override suspend fun participateEvent(userId: Int, eventId: Int): Boolean = dbQuery {
+        val insertResult = EventsParticipation.insert {
+            it[EventsParticipation.userId] = userId
+            it[EventsParticipation.eventId] = eventId
+        }.insertedCount > 0
+
+        if(insertResult){
+            Publications.update({ Publications.id eq eventId }) {
+                with(SqlExpressionBuilder){
+                    it[countParticipants] = countParticipants + 1
+                }
+            }
+        }
+        insertResult
+    }
+
+    override suspend fun stopParticipating(userId: Int, eventId: Int): Boolean = dbQuery {
+        val deleteResult = EventsParticipation.deleteWhere {
+            (EventsParticipation.userId eq userId) and (EventsParticipation.eventId eq eventId)
+        } > 0
+
+        if(deleteResult){
+            Publications.update({ Publications.id eq eventId }) {
+                with(SqlExpressionBuilder){
+                    it[countParticipants] = countParticipants - 1
+                }
+            }
+        }
+        deleteResult
     }
 }

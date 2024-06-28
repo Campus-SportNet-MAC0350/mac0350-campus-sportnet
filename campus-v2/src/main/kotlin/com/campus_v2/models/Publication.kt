@@ -57,3 +57,9 @@ data class UserAndPublication(
     val user: User,
     val publication: Publication,
 )
+
+object EventsParticipation : Table() {
+    val userId = integer("user_id").references(Users.id)
+    val eventId = integer("event_id").references(Publications.id)
+    override val primaryKey = PrimaryKey(userId, eventId)
+}
