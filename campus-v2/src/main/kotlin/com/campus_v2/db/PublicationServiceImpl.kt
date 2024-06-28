@@ -2,7 +2,6 @@ package com.campus_v2.db
 
 import com.campus_v2.models.*
 import com.campus_v2.plugins.dbQuery
-import io.ktor.events.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 

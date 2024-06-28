@@ -1,7 +1,6 @@
 package com.campus_v2.routes
 
 import com.campus_v2.db.PublicationService
-import com.campus_v2.models.FollowRequest
 import com.campus_v2.models.ParticipateRequest
 import com.campus_v2.models.Publication
 import io.ktor.http.*

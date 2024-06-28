@@ -1,5 +1,6 @@
 package com.campus_v2.plugins
 
+import com.campus_v2.models.EventsParticipation
 import com.campus_v2.models.Publications
 import com.campus_v2.models.UserFollows
 import com.campus_v2.models.Users
@@ -33,7 +34,7 @@ fun Application.configureDatabases() {
         password = "password"
     )
     transaction(db){
-        SchemaUtils.create(Users,Publications,UserFollows)
+        SchemaUtils.create(Users,Publications,UserFollows,EventsParticipation)
     }
 }
 
