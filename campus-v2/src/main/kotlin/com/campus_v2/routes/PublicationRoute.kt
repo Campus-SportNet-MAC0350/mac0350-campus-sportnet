@@ -48,6 +48,24 @@ fun Routing.publicationRoute(publicationService: PublicationService){
                 publicationService.deletePublication(it)
             } ?: call.respond(HttpStatusCode.BadRequest, "Provide ID")
         }
+        get("/checkIfParticipating") {
+            val userId = call.parameters["userId"]?.toIntOrNull()
+            val eventId = call.parameters["eventId"]?.toIntOrNull()
+
+            if(userId == null || eventId == null) {
+                call.respond(HttpStatusCode.BadRequest, "Invalid user or event ID")
+                return@get
+            }
+
+            val participation = publicationService.getParticipation(userId, eventId)
+
+            if(participation){
+                call.respond(HttpStatusCode.OK, mapOf("message" to "Cancel Participation"))
+            }
+            else{
+                call.respond(HttpStatusCode.NotFound, mapOf("message" to "Participate"))
+            }
+        }
         post("/participateInEvent") {
             val request = call.receive<ParticipateRequest>()
             val result = publicationService.participateEvent(request.userId, request.eventId)

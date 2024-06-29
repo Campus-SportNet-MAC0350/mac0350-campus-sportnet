@@ -57,6 +57,7 @@ export const DisplayPublication = () => {
         .map(p => (
         <Post
             key={p.publication.id}
+            id={p.publication.id}
             publicationType={p.publication.publicationType}
             username={p.user.username}
             profileImage={p.user.profileImagePath}

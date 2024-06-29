@@ -1,5 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getToken } from '../App/useToken';
+
+/* 
+ * FUNCTION: Check if the logged user is participating on event
+ * Receives the id for the logged user and the event
+ * Request response from database
+ * Returns true if the user has confirmed participation
+ * Returns false otherwise
+ */
+async function checkIfParticipating(userId, eventId){
+    const eventParticipation = {
+        userId: userId,
+        eventId: eventId,
+    };
+
+    try {
+        const response = await fetch(`publications/checkIfParticipating?userId=${eventParticipation.userId}&eventId=${eventParticipation.eventId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        
+        if(response.ok){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    catch(error){
+        console.error("[ERROR]: Parsing backend response: ", error);
+        return false;
+    }
+}
 
 /* 
  * FUNCTION: Display a publication
@@ -16,12 +50,38 @@ export const Post = (props) => {
     let [btnString, setBtnString] = useState("Participar");
     let [confirmedUsers, setConfirmedUsers] = useState(+props.confirmedUsers);
 
-    const handleEventParticipants = async () => {
-        const eventParticipation = {
-            userId: token,
-            eventId: props.id,
+    const eventParticipation = {
+        userId: token,
+        eventId: props.id,
+    };
+
+    // Check if user is participating when page is loaded
+    useEffect(() => {
+        const isParticipatingCheck = async () => {
+            const isParticipating = await checkIfParticipating(eventParticipation.userId, eventParticipation.eventId);
+            if (isParticipating) {
+                setFlag(1);
+                setBtnString('Cancelar Participação');
+                setParticipacao("Cancelar participação nesse evento?");
+            } 
+            else {
+                setFlag(0);
+                setBtnString('Participar');
+                setParticipacao("Confirmar participação nesse evento?");
+            }
         };
 
+        isParticipatingCheck();
+    }, [eventParticipation.userId, eventParticipation.eventId]);
+
+    /* 
+     * FUNCTION: Handle event participants
+     * If the user is not participating and clicks the button
+     * Saves user participation into database
+     * Otherwise, removes user participation from database
+     * Update visual features
+     */
+    const handleEventParticipants = async () => {
         // add participation
         if(!flag){
             try{
@@ -35,7 +95,7 @@ export const Post = (props) => {
 
                 if(response.status === 201){
                     const data = await response.json();
-                    console.log("Pariticipation added: ", data);
+                    console.log("Participation added: ", data);
                     setConfirmedUsers(confirmedUsers + 1);
                     setFlag(1);
                     setParticipacao("Cancelar participação nesse evento?");
@@ -48,7 +108,7 @@ export const Post = (props) => {
                 }
             }
             catch(error){
-                console.error("[ERROR]: Unable to participate!", error);
+                console.error("[ERROR]: Unable to participate! Problem parsing JSON response", error);
                 return;
             }
         } 
@@ -80,7 +140,7 @@ export const Post = (props) => {
                 console.error("[ERROR]: Unable to cancel participation: ", error);
             }   
         }
-        console.log(confirmedUsers);
+        console.log("Usuários confirmados: ", confirmedUsers);
     };
 
     const buttonStyle = {
@@ -106,6 +166,7 @@ export const Post = (props) => {
                 <div className="confirmPart">
                     <p>{participacao}</p>
                     <button onClick={handleEventParticipants} style={buttonStyle} id="participate" className="btn">{btnString}</button>
+                    <button className="btn">Participantes confirmados</button>
                 </div>
             </div>}
         </div>

@@ -2,6 +2,7 @@ package com.campus_v2.db
 
 import com.campus_v2.models.*
 import com.campus_v2.plugins.dbQuery
+import io.ktor.events.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 
@@ -97,5 +98,13 @@ class PublicationServiceImpl(private val userService: UserService) : Publication
             }
         }
         deleteResult
+    }
+
+    override suspend fun getParticipation(userId: Int, eventId: Int): Boolean = dbQuery {
+        val result = EventsParticipation.select {
+            (EventsParticipation.userId eq userId) and (EventsParticipation.eventId eq eventId)
+        }.count() > 0
+
+        return@dbQuery result
     }
 }

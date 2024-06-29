@@ -221,8 +221,6 @@ export const DisplayProfile = (props) => {
             catch (error) {
                 console.error('[ERROR]: Unable to follow user', error);
             }
-
-            
         } 
 
         // unfollow another profile
@@ -296,11 +294,15 @@ export const DisplayProfile = (props) => {
                 .map((publication) => (
                     <Post
                         key={publication.id}
+                        id={publication.id}
                         publicationType={publication.publicationType}
                         username={user.username}
                         profileImage={user.profileImagePath}
                         postText={publication.publicationText}
                         imageUrl={publication.publicationImagePath}
+                        eventData={publication.eventDate}
+                        eventTime={publication.eventTime}
+                        confirmedUsers={publication.countParticipants}
                     />
                 ))
             }
