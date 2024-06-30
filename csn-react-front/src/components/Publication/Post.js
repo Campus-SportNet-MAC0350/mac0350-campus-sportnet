@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getToken } from '../App/useToken';
+import { Link } from 'react-router-dom';
 
 /* 
  * FUNCTION: Check if the logged user is participating on event
@@ -15,16 +16,18 @@ async function checkIfParticipating(userId, eventId){
     };
 
     try {
-        const response = await fetch(`publications/checkIfParticipating?userId=${eventParticipation.userId}&eventId=${eventParticipation.eventId}`, {
+        const response = await fetch(`http://localhost:8080/publications/checkIfParticipating?userId=${eventParticipation.userId}&eventId=${eventParticipation.eventId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
         });
         
-        if(response.ok){
+        if (response.status === 200) {
+            const data = await response.json();
+            console.log(data);
             return true;
-        }
+        } 
         else{
             return false;
         }
@@ -58,21 +61,23 @@ export const Post = (props) => {
     // Check if user is participating when page is loaded
     useEffect(() => {
         const isParticipatingCheck = async () => {
-            const isParticipating = await checkIfParticipating(eventParticipation.userId, eventParticipation.eventId);
-            if (isParticipating) {
-                setFlag(1);
-                setBtnString('Cancelar Participação');
-                setParticipacao("Cancelar participação nesse evento?");
-            } 
-            else {
-                setFlag(0);
-                setBtnString('Participar');
-                setParticipacao("Confirmar participação nesse evento?");
+            if(props.publicationType === 'e'){
+                const isParticipating = await checkIfParticipating(eventParticipation.userId, eventParticipation.eventId);
+                if (isParticipating) {
+                    setFlag(1);
+                    setBtnString('Cancelar Participação');
+                    setParticipacao("Cancelar participação nesse evento?");
+                } 
+                else {
+                    setFlag(0);
+                    setBtnString('Participar');
+                    setParticipacao("Confirmar participação nesse evento?");
+                }
             }
         };
 
         isParticipatingCheck();
-    }, [eventParticipation.userId, eventParticipation.eventId]);
+    }, [props.publicationType, eventParticipation.userId, eventParticipation.eventId]);
 
     /* 
      * FUNCTION: Handle event participants
@@ -140,7 +145,6 @@ export const Post = (props) => {
                 console.error("[ERROR]: Unable to cancel participation: ", error);
             }   
         }
-        console.log("Usuários confirmados: ", confirmedUsers);
     };
 
     const buttonStyle = {
@@ -166,7 +170,7 @@ export const Post = (props) => {
                 <div className="confirmPart">
                     <p>{participacao}</p>
                     <button onClick={handleEventParticipants} style={buttonStyle} id="participate" className="btn">{btnString}</button>
-                    <button className="btn">Participantes confirmados</button>
+                    <Link to={`/participants/${props.id}`} ><button className="btn">Participantes confirmados</button></Link>
                 </div>
             </div>}
         </div>

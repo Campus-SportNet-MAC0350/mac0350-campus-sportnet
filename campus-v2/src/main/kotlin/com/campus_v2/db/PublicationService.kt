@@ -1,6 +1,7 @@
 package com.campus_v2.db
 
 import com.campus_v2.models.Publication
+import com.campus_v2.models.User
 import com.campus_v2.models.UserAndPublication
 
 interface PublicationService {
@@ -12,4 +13,5 @@ interface PublicationService {
     suspend fun participateEvent(userId: Int, eventId: Int): Boolean
     suspend fun stopParticipating(userId: Int, eventId: Int): Boolean
     suspend fun getParticipation(userId: Int, eventId: Int): Boolean
+    suspend fun getParticipants(eventId: Int): List<User>
 }

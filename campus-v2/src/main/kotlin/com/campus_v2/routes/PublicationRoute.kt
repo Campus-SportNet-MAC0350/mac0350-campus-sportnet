@@ -86,5 +86,26 @@ fun Routing.publicationRoute(publicationService: PublicationService){
                 call.respond(HttpStatusCode.NotFound, mapOf("message" to "Unable to stop participating"))
             }
         }
+        get("/getParticipants") {
+            val eventId = call.parameters["eventId"]?.toIntOrNull()
+
+            if (eventId == null) {
+                call.respond(HttpStatusCode.BadRequest, "Invalid event ID")
+                return@get
+            }
+
+            try {
+                val participants = publicationService.getParticipants(eventId)
+
+                if (participants.isNotEmpty()) {
+                    call.respond(HttpStatusCode.OK, participants)
+                }
+                else {
+                    call.respond(HttpStatusCode.NotFound, mapOf("message" to "No participants found"))
+                }
+            } catch (e: Exception) {
+                call.respond(HttpStatusCode.InternalServerError, "Error retrieving participants")
+            }
+        }
     }
 }

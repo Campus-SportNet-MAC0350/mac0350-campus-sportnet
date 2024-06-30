@@ -10,6 +10,7 @@ import { CreatePublication } from './components/Publish/CreatePublication';
 import { DisplayUserEvents } from './components/Feed/DisplayUserEvents';
 import { CreateEvent } from './components/Publish/CreateEvent';
 import { DisplaySearchPage } from './components/Search/DisplaySearchPage';
+import { DisplayParticipants } from './components/Participants/DisplayParticipants'
 import useToken from './components/App/useToken';
 
 const AuthChecker = () => {
@@ -31,6 +32,7 @@ const AuthChecker = () => {
       <Route path="/postevent" element={<CreateEvent token={token} />} />
       <Route path="/events" element={<DisplayUserEvents token={token} />} />
       <Route path="/search" element={<DisplaySearchPage token={token} />} />
+      <Route path="/participants/:id?" element={<DisplayParticipants token={token} />}  />
     </Routes>
   );
 }

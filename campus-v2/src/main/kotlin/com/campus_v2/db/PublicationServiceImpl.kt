@@ -2,7 +2,7 @@ package com.campus_v2.db
 
 import com.campus_v2.models.*
 import com.campus_v2.plugins.dbQuery
-import io.ktor.events.*
+import io.ktor.server.plugins.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 
@@ -106,5 +106,23 @@ class PublicationServiceImpl(private val userService: UserService) : Publication
         }.count() > 0
 
         return@dbQuery result
+    }
+
+    override suspend fun getParticipants(eventId: Int): List<User> = dbQuery {
+        (EventsParticipation innerJoin Users)
+            .select { EventsParticipation.eventId eq eventId }
+            .map { row ->
+                User(
+                    id = row[Users.id],
+                    email = row[Users.email],
+                    username = row[Users.username],
+                    password = row[Users.password],
+                    profileBio = row[Users.profileBio],
+                    university = row[Users.university],
+                    userType = row[Users.userType],
+                    followersCount = row[Users.followersCount],
+                    profileImagePath = row[Users.profileImagePath]
+                )
+            }
     }
 }

@@ -2,6 +2,12 @@ import { Post } from "./Post";
 import React, { useEffect, useState } from 'react';
 import { getToken } from "../App/useToken";
 
+/* 
+ * FUNCTION: Get publications from followed users
+ * Fetch the backend with GET method
+ * Check if is able to get information
+ * Returns the JSON response
+ */
 async function getFollowedPublications(id){
     try{
         const response = await fetch(`http://localhost:8080/publications/followedinfo/${id}`, {
@@ -27,7 +33,14 @@ async function getFollowedPublications(id){
     }
 }
 
-
+/* 
+ * FUNCTION: Display a publication
+ * Receives the response from the above function
+ * Checks if there are publications to be displayed
+ * If so, set them to a list
+ * List the posts in post-date order and call <Post>
+ * Send props to publication informations
+ */
 export const DisplayPublication = () => {
     const token = getToken();
     const [publications, setPublications] = useState([]);
