@@ -80,6 +80,18 @@ class PublicationServiceImpl(private val userService: UserService) : Publication
         }
     }
 
+    override suspend fun getEventAndUser(eventId: Int): UserAndPublication = dbQuery {
+        val event = Publications.select { Publications.id eq eventId }
+            .map { resultRowToPublication(it) }
+            .firstOrNull() ?: throw IllegalStateException("Publication not found for ID: $eventId")
+
+        val user = Users.select { Users.id eq event.userId }
+            .map { userService.getUserFromResultRow(it) }
+            .firstOrNull() ?: throw IllegalStateException("User not found for user ID: ${event.userId}")
+
+        UserAndPublication(user, event)
+    }
+
     override suspend fun participateEvent(userId: Int, eventId: Int): Boolean = dbQuery {
         val insertResult = EventsParticipation.insert {
             it[EventsParticipation.userId] = userId

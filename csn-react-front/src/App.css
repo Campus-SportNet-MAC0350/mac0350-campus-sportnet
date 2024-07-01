@@ -603,6 +603,15 @@
   margin-top: 20px;
 }
 
+.pageTitle {
+  font-size: 20px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  padding: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 1.6;
+}
+
 .search_icon {
   display: flex;
   align-items: center;
@@ -688,3 +697,4 @@
 
 /* menuItem */
 /* .img_and_user_right */
+/* results */

@@ -70,15 +70,15 @@ export const DisplaySearchPage = () => {
             <div className="centerSearch">
                 <div className="centerTitle">
                     <form>
-                        <div className='buttonsPub'>
-                            <Link to="/home"><button className='btn'>Voltar</button></Link>
-                        </div>
                         <input 
                             placeholder='Buscar um perfil' 
                             name='query' 
                             value={query}
                             onChange={handleChange}
                         />
+                        <div className='buttonsPub'>
+                            <Link to="/home"><button className='btn'>Voltar</button></Link>
+                        </div>
                     </form>
                 </div>
                 <div className="results">

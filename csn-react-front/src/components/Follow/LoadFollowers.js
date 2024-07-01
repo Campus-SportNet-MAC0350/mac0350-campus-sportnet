@@ -60,6 +60,7 @@ export const LoadFollowers = () => {
     return (
         <div className="feed">
             <div className="results">
+                <p className="pageTitle">Seguidores</p>
                 {results.map(result => (
                     <Link to={`/profile/${result.id}`} className='searchLink' key={result.id}>
                         <div className="search_icon">

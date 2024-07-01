@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getToken } from '../App/useToken';
+import { Post } from '../Publication/Post';
 
 /* 
  * FUNCTION: Get users for an event
@@ -34,6 +35,35 @@ async function getUsersForEvent(eventId){
 }
 
 /* 
+ * FUNCTION: Get the publication
+ * with a GET request to backend
+ * returns the user and event
+ */
+async function getPublication(eventId){
+    try{
+        const response = await fetch(`http://localhost:8080/publications/event/${eventId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if(response.ok){
+            return await response.json();
+        }
+        else{
+            const errorData = await response.json();
+            console.error("Unable to get event", errorData);
+            return null;
+        }
+    }
+    catch(error){
+        console.error("Unable to fetch event information!", error);
+        return null;
+    }
+}
+
+/* 
  * FUNCTION: Display the participants list
  * Get and event id from props
  * Load the information for all the users that
@@ -47,6 +77,7 @@ export const ParticipantsList = (props) => {
     const token = getToken();
     const navigate = useNavigate();
 
+    const [pub, setPub] = useState();
     const [results, setResults] = useState([]);
 
     useEffect(() => {
@@ -75,9 +106,43 @@ export const ParticipantsList = (props) => {
         getParticipantsList();
     }, [id]);
 
+    /* 
+     * FUNCTION: Get the event on which
+     * users are confirming participation
+     */
+    useEffect(() => {
+        const getUserAndPublication = async () => {
+            const publication = await getPublication(id);
+            if(publication){
+                setPub(publication);
+            }
+            else{
+                setPub();
+            }
+        }
+        getUserAndPublication();
+    }, [id]);
+
+    const post = pub && (
+        <Post
+            key={pub.publication.id}
+            id={pub.publication.id}
+            publicationType={pub.publication.publicationType}
+            username={pub.user.username}
+            profileImage={pub.user.profileImagePath}
+            postText={pub.publication.publicationText}
+            imageUrl={pub.publication.publicationImagePath}
+            eventData={pub.publication.eventDate}
+            eventTime={pub.publication.eventTime}
+            confirmedUsers={pub.publication.countParticipants}
+        />
+    );
+
     return (
         <div className="feed">
             <div className="results">
+                <p className="pageTitle">Participantes</p>
+                {post}
                 {results.map(result => (
                     <Link to={`/profile/${result.id}`} className='searchLink' key={result.id}>
                         <div className="search_icon">

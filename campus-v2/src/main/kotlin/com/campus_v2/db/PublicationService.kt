@@ -15,4 +15,5 @@ interface PublicationService {
     suspend fun stopParticipating(userId: Int, eventId: Int): Boolean
     suspend fun getParticipation(userId: Int, eventId: Int): Boolean
     suspend fun getParticipants(eventId: Int): List<User>
+    suspend fun getEventAndUser(eventId: Int): UserAndPublication
 }

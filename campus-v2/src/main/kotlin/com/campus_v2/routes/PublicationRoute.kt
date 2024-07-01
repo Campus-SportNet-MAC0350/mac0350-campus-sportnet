@@ -118,5 +118,21 @@ fun Routing.publicationRoute(publicationService: PublicationService){
                 call.respond(HttpStatusCode.InternalServerError, "Error retrieving participants")
             }
         }
+        get("/event/{eventId}"){
+            val eventId = call.parameters["eventId"]?.toIntOrNull()
+
+            if(eventId == null) {
+                call.respond(HttpStatusCode.BadRequest, "Invalid event ID")
+                return@get
+            }
+
+            try {
+                val event = publicationService.getEventAndUser(eventId)
+                call.respond(HttpStatusCode.OK, event)
+            }
+            catch(e: Exception){
+                call.respond(HttpStatusCode.InternalServerError, "Error retrieving event")
+            }
+        }
     }
 }
