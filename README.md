@@ -6,6 +6,8 @@
 - Participe de festas, jogos e saiba de tudo que ocorre na vida universitária
 - Cadastre sua conta e junte-se a essa comunidade 🥇
 
+<h2>Infinitas possibilidades</h2>
+
 <h2>Tecnologias</h2>
 
 <a href="https://react.dev" target=”_blank”>![React](https://skillicons.dev/icons?i=react)</a>
@@ -30,41 +32,7 @@ idea .
 
 <p>Ao abrir o IntelliJ Idea, o programa pode ser executado com o botão de execução, no canto superior esquerdo. Ao configurar um banco de dados local com PostgreSQL na sua máquina, e modificando os parâmetros necessários de login e senha no código do back-end (caso você não saiba como fazer isso, pode encontrar um tutorial nas referências, ao fim desse arquivo), você está pronto para enviar requisições e popular o banco de dados. Seguem alguns exemplos:</p>
 
-<h3>Popular a tabela de publicações</h3>
-
-```
-curl -X POST http://localhost:8080/publications -H "Content-Type: application/json" -d '{
-  "userId": 1,
-  "publicationText": "This is a new publication",
-  "publicationType": "A",
-  "countParticipants": 0,
-  "dateTime": "2024-05-23T10:00:00",
-  "publicationImagePath": "/path/to/image.jpg"
-}'
-```
-
-<h3>Popular a tabela de usuários</h3>
-
-```
-curl -X POST http://localhost:8080/users -H "Content-Type: application/json" -d '{
-    "username": "User1",
-    "password": "password1",
-    "profileBio": "Bio1",  
-    "university": "University1",
-    "team": "Team1",
-    "userType": "A"
-}'
-```
-
-<h3>Fazer que um usuário deixe de seguir outro (é necessário existir pelo menos dois usuários no BD, que já se seguem)</h3>
-
-```
-curl -X DELETE http://localhost:8080/users/unfollow -H "Content-Type: application/json" -d '{               
-  "followerId": 1,
-  "followedId": 2
-}' 
-```
-
+Agora você pode começar a utilizar nosso programa. Lembre-se que é necessário possuir a base de dados PostgreSQL instalada, e modificar os arquivos do back-end e as rotas no front-end para conseguir enviar requisições para o banco de dados local.
 
 <h2>Referências</h2>
 
