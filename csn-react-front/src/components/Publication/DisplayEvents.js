@@ -10,7 +10,6 @@ import React, { useEffect, useState } from 'react';
  */
 async function getUserEvents(id){
     try{
-        console.log("oie1");
         const response = await fetch(`http://localhost:8080/publications/events/${id}`, {
             method: 'GET',
             headers: {

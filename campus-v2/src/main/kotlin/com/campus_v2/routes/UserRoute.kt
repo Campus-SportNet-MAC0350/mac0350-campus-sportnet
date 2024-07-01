@@ -64,6 +64,28 @@ fun Routing.userRoute(userService: UserService){
                 } ?: call.respond(HttpStatusCode.NotFound, "User not found")
             } ?: call.respond(HttpStatusCode.BadGateway, "Provide Input!")
         }
+        get("/followers/{id}"){
+            val id = call.parameters["id"]?.toIntOrNull()
+
+            if(id == null){
+                call.respond(HttpStatusCode.BadRequest, "Invalid ID")
+                return@get
+            }
+
+            val listUsers = userService.getFollowers(id)
+            call.respond(HttpStatusCode.OK, listUsers)
+        }
+        get("/following/{id}") {
+            val id = call.parameters["id"]?.toIntOrNull()
+
+            if (id == null) {
+                call.respond(HttpStatusCode.BadRequest, "Invalid ID")
+                return@get
+            }
+
+            val listUsers = userService.getFollowing(id)
+            call.respond(HttpStatusCode.OK, listUsers)
+        }
         get("/login"){
             val email=call.request.queryParameters["email"]
             val password=call.request.queryParameters["password"]

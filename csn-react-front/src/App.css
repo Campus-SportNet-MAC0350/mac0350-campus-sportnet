@@ -233,6 +233,7 @@
   text-align: center;
   display: block;
   padding: 30px;
+  text-decoration: none;
 }
 
 .followersTxt {
@@ -257,6 +258,8 @@
 
 .img_and_user_right {
   display: flex;
+  text-decoration: none;
+  color: #000;
   padding: 10px;
   margin-bottom: 10px;
   align-items: center;
@@ -269,6 +272,15 @@
   height: 50px;
   border-radius: 50%;
   margin-right: 10px;
+}
+
+.img_and_user_right:hover{
+  color: #000;
+  text-decoration: none;
+}
+
+.linkDef {
+  text-decoration: none;
 }
 
 /*-*-*-* Login/Register *-*-*-*/
@@ -673,3 +685,6 @@
       max-width: 100%;
   }
 }
+
+/* menuItem */
+/* .img_and_user_right */

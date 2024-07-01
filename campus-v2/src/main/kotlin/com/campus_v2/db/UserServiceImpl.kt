@@ -1,11 +1,10 @@
 package com.campus_v2.db
 
-import com.campus_v2.models.User
-import com.campus_v2.models.Users
-import com.campus_v2.models.UserFollows
+import com.campus_v2.models.*
 import com.campus_v2.plugins.dbQuery
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.inList
 
 class UserServiceImpl : UserService {
     private fun resultRowToUser(row: ResultRow):User{
@@ -121,8 +120,25 @@ class UserServiceImpl : UserService {
 
     // get list of followers
     override suspend fun getFollowers(userId: Int): List<User> = dbQuery {
-        (UserFollows innerJoin Users)
+        val followersIds = UserFollows.slice(UserFollows.followerId)
             .select { UserFollows.followedId eq userId }
+            .map { it[UserFollows.followerId] }
+
+        val users = Users.select { Users.id inList followersIds }
             .map { resultRowToUser(it) }
+
+        users
+    }
+
+    // get following list
+    override suspend fun getFollowing(userId: Int): List<User> = dbQuery {
+        val followingIds = UserFollows.slice(UserFollows.followedId)
+            .select { UserFollows.followerId eq userId }
+            .map { it[UserFollows.followedId] }
+
+        val users = Users.select { Users.id inList followingIds }
+            .map { resultRowToUser(it) }
+
+        users
     }
 }

@@ -11,6 +11,8 @@ import { DisplayUserEvents } from './components/Feed/DisplayUserEvents';
 import { CreateEvent } from './components/Publish/CreateEvent';
 import { DisplaySearchPage } from './components/Search/DisplaySearchPage';
 import { DisplayParticipants } from './components/Participants/DisplayParticipants'
+import { DisplayFollowers } from './components/Follow/DisplayFollowers';
+import { DisplayFollowing } from './components/Follow/DisplayFollowing';
 import useToken from './components/App/useToken';
 
 const AuthChecker = () => {
@@ -33,6 +35,8 @@ const AuthChecker = () => {
       <Route path="/events" element={<DisplayUserEvents token={token} />} />
       <Route path="/search" element={<DisplaySearchPage token={token} />} />
       <Route path="/participants/:id?" element={<DisplayParticipants token={token} />}  />
+      <Route path="/following" element={<DisplayFollowing token={token} />} />
+      <Route path="/followers" element={<DisplayFollowers token={token} />} />
     </Routes>
   );
 }
