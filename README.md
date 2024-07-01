@@ -1,10 +1,16 @@
 # MAC0350 Campus-SportNet ⚽
+<img src="/csn-react-front/public/logo192.png">
+
 
 - A próxima tendência para atletas e torcedores das mais badaladas universidades brasileiras. 
 - Cansado de perder um jogo de sua atlética?
 - Cadastre sua conta e não perca mais nenhum evento!
 - Participe de festas, jogos e saiba de tudo que ocorre na vida universitária
 - Cadastre sua conta e junte-se a essa comunidade 🥇
+
+<h2>Infinitas possibilidades</h2>
+
+No Campus-SportNet você poderá se conectar com seus amigos e atléticas favoritas, para nossas universidades cadastradas, e ficar sabendo de eventos que irão ocorrer. Desde festas universitárias, jogos, campeonatos, seminários, etc. O networking vai além da experiência acadêmica! Se cadastre e junte-se a essa nova rede social, que vem conquistando membros em diversas Universidades brasileiras.
 
 <h2>Tecnologias</h2>
 
@@ -28,43 +34,7 @@ cd campus-v2
 idea .
 ```
 
-<p>Ao abrir o IntelliJ Idea, o programa pode ser executado com o botão de execução, no canto superior esquerdo. Ao configurar um banco de dados local com PostgreSQL na sua máquina, e modificando os parâmetros necessários de login e senha no código do back-end (caso você não saiba como fazer isso, pode encontrar um tutorial nas referências, ao fim desse arquivo), você está pronto para enviar requisições e popular o banco de dados. Seguem alguns exemplos:</p>
-
-<h3>Popular a tabela de publicações</h3>
-
-```
-curl -X POST http://localhost:8080/publications -H "Content-Type: application/json" -d '{
-  "userId": 1,
-  "publicationText": "This is a new publication",
-  "publicationType": "A",
-  "countParticipants": 0,
-  "dateTime": "2024-05-23T10:00:00",
-  "publicationImagePath": "/path/to/image.jpg"
-}'
-```
-
-<h3>Popular a tabela de usuários</h3>
-
-```
-curl -X POST http://localhost:8080/users -H "Content-Type: application/json" -d '{
-    "username": "User1",
-    "password": "password1",
-    "profileBio": "Bio1",  
-    "university": "University1",
-    "team": "Team1",
-    "userType": "A"
-}'
-```
-
-<h3>Fazer que um usuário deixe de seguir outro (é necessário existir pelo menos dois usuários no BD, que já se seguem)</h3>
-
-```
-curl -X DELETE http://localhost:8080/users/unfollow -H "Content-Type: application/json" -d '{               
-  "followerId": 1,
-  "followedId": 2
-}' 
-```
-
+<p>Ao abrir o IntelliJ Idea, o programa pode ser executado com o botão de execução, no canto superior direito Ao configurar um banco de dados local com PostgreSQL na sua máquina, e modificando os parâmetros necessários de login e senha no código do back-end (caso você não saiba como fazer isso, pode encontrar um tutorial nas referências, ao fim desse arquivo), você está pronto para enviar requisições e popular o banco de dados. Seguem alguns exemplos:</p>
 
 <h2>Referências</h2>
 
@@ -73,3 +43,11 @@ curl -X DELETE http://localhost:8080/users/unfollow -H "Content-Type: applicatio
 3. [SQL Integration with KTOR](https://blog.stackademic.com/guide-to-sql-database-integration-with-ktor-applications-c6cb52e6c346)
 4. [ReactJS Integration with KTOR](https://www.freecodecamp.org/news/how-to-consume-rest-apis-in-react/)
 5. [Login Authentication on React Applications](https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications)
+6. [React Router: Optional Parameters](https://www.digitalocean.com/community/tutorials/react-react-router-optional-parameters)
+
+<h2>Créditos</h2>
+
+- Lucas Escobar
+- Rodrigo de Castro Michelassi
+
+Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP), 2024
