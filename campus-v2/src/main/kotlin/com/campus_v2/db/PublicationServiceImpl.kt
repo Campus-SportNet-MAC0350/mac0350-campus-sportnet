@@ -2,7 +2,6 @@ package com.campus_v2.db
 
 import com.campus_v2.models.*
 import com.campus_v2.plugins.dbQuery
-import io.ktor.server.plugins.*
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 
@@ -58,14 +57,26 @@ class PublicationServiceImpl(private val userService: UserService) : Publication
             .map { resultRowToPublication(it) }
 
         publications.map { publication ->
-            println("PublicationID ${publication.id}")
-        }
-
-        publications.map { publication ->
             val user = Users.select { Users.id eq publication.userId }
                 .map { userService.getUserFromResultRow(it) }
                 .firstOrNull() ?: throw IllegalStateException("User not found for publication ID: ${publication.id}")
             UserAndPublication(user, publication)
+        }
+    }
+
+    override suspend fun getUserEvents(id: Int):List<UserAndPublication> = dbQuery {
+        val eventsId = EventsParticipation.slice(EventsParticipation.eventId)
+            .select { EventsParticipation.userId eq id }
+            .map { it[EventsParticipation.eventId] }
+
+        val events = Publications.select { (Publications.id inList eventsId) }
+            .map { resultRowToPublication(it) }
+
+        events.map { event ->
+            val user = Users.select { Users.id eq event.userId }
+                .map { userService.getUserFromResultRow(it) }
+                .firstOrNull() ?: throw IllegalStateException("User not found for publication ID: ${event.id}")
+            UserAndPublication(user, event)
         }
     }
 
