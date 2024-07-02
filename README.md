@@ -12,7 +12,25 @@
 
 No Campus-SportNet você poderá se conectar com seus amigos e atléticas favoritas, para nossas universidades cadastradas, e ficar sabendo de eventos que irão ocorrer. Desde festas universitárias, jogos, campeonatos, seminários, etc. O networking vai além da experiência acadêmica! Se cadastre e junte-se a essa nova rede social, que vem conquistando membros em diversas Universidades brasileiras.
 
-<h2>Tecnologias</h2>
+<h2>Explore o que seus amigos estão fazendo</h2>
+<p align="center">
+  <img src="./images/feed.png" width=70% />
+</p>
+
+<h2>Participe e veja participantes de eventos</h2>
+<p align="center">
+  <img src="./images/events.png" width=70% />
+</p>
+
+<h2>Monte seu perfil</h2>
+<p align="center">
+  <img src="./images/profile.png" width=70% />
+</p>
+
+<h2>Consulte quem você segue e seus seguidores</h2>
+<p align="center">
+  <img src="./images/following.png" width=70% />
+</p>
 
 <a href="https://react.dev" target=”_blank”>![React](https://skillicons.dev/icons?i=react)</a>
 <a href="https://ktor.io" target=”_blank”>![KTOR](https://skillicons.dev/icons?i=ktor)</a>
