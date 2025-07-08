@@ -1,4 +1,3 @@
-# MAC0350 Campus-SportNet ⚽
 <img src="/csn-react-front/public/logo192.png">
 
 
